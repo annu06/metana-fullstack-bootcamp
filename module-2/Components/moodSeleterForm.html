@@ -1,0 +1,13 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <h2 class="modal-title">How are you feeling?</h2>
+        <button class="close-btn" onclick="closeMoodModal()">&times;</button>
+    </div>
+    <div class="mood-selector">
+        <div class="mood-option" onclick="selectMood(this, '😢')">😢</div>
+        <div class="mood-option selected" onclick="selectMood(this, '😐')">😐</div>
+        <div class="mood-option" onclick="selectMood(this, '😊')">😊</div>
+    </div>
+    <input type="range" class="mood-slider" min="0" max="100" value="50">
+    <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Set Mood</button>
+</div>
