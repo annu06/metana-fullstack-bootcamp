@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mood-Based Task Dashboard</title>
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="Styles/index.css" />
+  <link rel="stylesheet" href="Styles/tasksComponent.css" />
+  <link rel="stylesheet" href="Styles/suggestedTaskComponent.css" />
+  <link rel="stylesheet" href="Styles/taskCreationForm.css" />
+  <link rel="stylesheet" href="Styles/moodSelecter.css" />
+  <link rel="stylesheet" href="Styles/loginForm.css" />
+</head>
+<body>
+
+  <header class="dashboard-header">
+    <div class="user-info">
+      <div class="user-avatar"></div>
+      <div>
+        <h3>Welcome, Guest</h3>
+        <p></p>
+      </div>
+    </div>
+    <div class="mood-icons">
+      <button class="mood-btn">Mood: 🙂</button>
+      <button class="icon-btn">🔊</button>
+      <button class="icon-btn">👤</button>
+    </div>
+  </header>
+
+  <main class="dashboard">
+    <section class="tasks-section">
+      <div class="tasks-header">
+        <div>
+          <h2 class="green-text">Ready for Today?</h2>
+          <p>You have 0 tasks planned for today</p>
+        </div>
+        <div class="task-controls">
+          <button class="btn">+ Add Task</button>
+          <button class="btn green">Complete All</button>
+          <button class="btn green">Show Completed</button>
+        </div>
+      </div>
+
+      <div class="tasks-list">
+        <p class="no-tasks">No tasks yet. Add a task to get started!</p>
+      </div>
+    </section>
+
+    <section class="suggested-tasks">
+      <h3>Suggested tasks</h3>
+      <!-- Suggested tasks will be added here dynamically -->
+    </section>
+  </main>
+
+  <!-- JavaScript Files -->
+  <script src="Scripts/tasksComponent.js"></script>
+  <script src="Scripts/suggestedTaskComponent.js"></script>
+  <script src="Scripts/taskCreationForm.js"></script>
+  <script src="Scripts/moodSelecter.js"></script>
+  <script src="Scripts/loginForm.js"></script>
+  <script src="Scripts/index.js"></script>
+</body>
+</html>
