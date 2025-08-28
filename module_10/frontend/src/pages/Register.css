@@ -1,0 +1,297 @@
+.register-page {
+  min-height: calc(100vh - 64px);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.register-container {
+  max-width: 1000px;
+  width: 100%;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 700px;
+}
+
+.register-content {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.register-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.register-header h1 {
+  margin: 0 0 12px 0;
+  color: #333;
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+.register-header p {
+  margin: 0;
+  color: #666;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.error-message {
+  background: #ffebee;
+  color: #c62828;
+  padding: 12px 16px;
+  border-radius: 4px;
+  border: 1px solid #ffcdd2;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  margin-bottom: 6px;
+  color: #555;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.form-input {
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #2196f3;
+  box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+}
+
+.form-input.error {
+  border-color: #f44336;
+}
+
+.form-input.error:focus {
+  border-color: #f44336;
+  box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.1);
+}
+
+.form-input:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.field-error {
+  color: #f44336;
+  font-size: 0.75rem;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.submit-btn {
+  padding: 14px 20px;
+  background: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: #1976d2;
+  transform: translateY(-1px);
+}
+
+.submit-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submit-btn:disabled {
+  background: #bbb;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.submit-btn.loading {
+  background: #1976d2;
+}
+
+.loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.register-footer {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.register-footer p {
+  margin: 0;
+  color: #666;
+  font-size: 0.875rem;
+}
+
+.login-link {
+  color: #2196f3;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.login-link:hover {
+  color: #1976d2;
+  text-decoration: underline;
+}
+
+.register-sidebar {
+  background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+  color: white;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-content h2 {
+  margin: 0 0 40px 0;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.benefit {
+  text-align: center;
+}
+
+.benefit-icon {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.benefit h3 {
+  margin: 0 0 12px 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.benefit p {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .register-page {
+    padding: 16px;
+  }
+  
+  .register-container {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+  
+  .register-content {
+    padding: 30px 25px;
+  }
+  
+  .register-header h1 {
+    font-size: 1.875rem;
+  }
+  
+  .register-header p {
+    font-size: 1rem;
+  }
+  
+  .register-sidebar {
+    padding: 30px 25px;
+  }
+  
+  .sidebar-content h2 {
+    font-size: 1.75rem;
+    margin-bottom: 30px;
+  }
+  
+  .benefits {
+    gap: 24px;
+  }
+  
+  .benefit-icon {
+    font-size: 2rem;
+    margin-bottom: 12px;
+  }
+  
+  .benefit h3 {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-page {
+    padding: 12px;
+  }
+  
+  .register-content {
+    padding: 25px 20px;
+  }
+  
+  .register-header h1 {
+    font-size: 1.625rem;
+  }
+  
+  .register-sidebar {
+    padding: 25px 20px;
+  }
+  
+  .sidebar-content h2 {
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,353 @@
+.create-blog {
+  min-height: calc(100vh - 64px);
+  background: #f8f9fa;
+  padding: 20px;
+}
+
+.create-blog-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.create-blog-loading {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: #666;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #2196f3;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loading-spinner.small {
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.create-blog-header {
+  padding: 40px 40px 30px 40px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: center;
+}
+
+.create-blog-header h1 {
+  margin: 0 0 12px 0;
+  color: #333;
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+.create-blog-header p {
+  margin: 0;
+  color: #666;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.create-blog-form {
+  padding: 40px;
+}
+
+.error-message {
+  background: #ffebee;
+  color: #c62828;
+  padding: 12px 16px;
+  border-radius: 4px;
+  border: 1px solid #ffcdd2;
+  font-size: 0.875rem;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  outline: none;
+  border-color: #2196f3;
+  box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+}
+
+.form-input.error, .form-select.error, .form-textarea.error {
+  border-color: #f44336;
+}
+
+.form-input.error:focus, .form-select.error:focus, .form-textarea.error:focus {
+  border-color: #f44336;
+  box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.1);
+}
+
+.form-input:disabled, .form-select:disabled, .form-textarea:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 200px;
+  line-height: 1.6;
+}
+
+.form-help {
+  display: block;
+  margin-top: 6px;
+  color: #666;
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.field-error {
+  display: block;
+  color: #f44336;
+  font-size: 0.75rem;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.submit-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.cancel-btn, .draft-btn, .publish-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 120px;
+}
+
+.cancel-btn {
+  background: #f5f5f5;
+  color: #666;
+  border: 1px solid #e0e0e0;
+}
+
+.cancel-btn:hover:not(:disabled) {
+  background: #e0e0e0;
+  color: #333;
+}
+
+.draft-btn {
+  background: #ff9800;
+  color: white;
+}
+
+.draft-btn:hover:not(:disabled) {
+  background: #f57c00;
+  transform: translateY(-1px);
+}
+
+.publish-btn {
+  background: #4caf50;
+  color: white;
+}
+
+.publish-btn:hover:not(:disabled) {
+  background: #45a049;
+  transform: translateY(-1px);
+}
+
+.cancel-btn:disabled, .draft-btn:disabled, .publish-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.draft-btn:disabled {
+  background: #ff9800;
+}
+
+.publish-btn:disabled {
+  background: #4caf50;
+}
+
+/* Character counter for textarea */
+.form-group:has(.form-textarea) {
+  position: relative;
+}
+
+.char-counter {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: #666;
+  pointer-events: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .create-blog {
+    padding: 16px;
+  }
+  
+  .create-blog-container {
+    border-radius: 8px;
+  }
+  
+  .create-blog-header {
+    padding: 30px 25px 25px 25px;
+  }
+  
+  .create-blog-header h1 {
+    font-size: 1.875rem;
+  }
+  
+  .create-blog-header p {
+    font-size: 1rem;
+  }
+  
+  .create-blog-form {
+    padding: 30px 25px;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+  
+  .submit-actions {
+    order: -1;
+    justify-content: space-between;
+  }
+  
+  .cancel-btn {
+    width: 100%;
+  }
+  
+  .draft-btn, .publish-btn {
+    flex: 1;
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .create-blog {
+    padding: 12px;
+  }
+  
+  .create-blog-header {
+    padding: 25px 20px 20px 20px;
+  }
+  
+  .create-blog-header h1 {
+    font-size: 1.625rem;
+  }
+  
+  .create-blog-form {
+    padding: 25px 20px;
+  }
+  
+  .form-input, .form-select, .form-textarea {
+    padding: 10px 12px;
+  }
+  
+  .form-textarea {
+    min-height: 150px;
+  }
+  
+  .submit-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .draft-btn, .publish-btn {
+    width: 100%;
+  }
+}
+
+/* Focus management for better accessibility */
+.form-input:focus-visible, .form-select:focus-visible, .form-textarea:focus-visible {
+  outline: 2px solid #2196f3;
+  outline-offset: 2px;
+}
+
+/* Improved button states */
+.cancel-btn:focus-visible, .draft-btn:focus-visible, .publish-btn:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Loading state improvements */
+.draft-btn:disabled .loading-spinner, .publish-btn:disabled .loading-spinner {
+  border-top-color: currentColor;
+}
+
+/* Form validation styling */
+.form-group.has-error .form-label {
+  color: #f44336;
+}
+
+.form-group.has-success .form-input,
+.form-group.has-success .form-select,
+.form-group.has-success .form-textarea {
+  border-color: #4caf50;
+}
+
+.form-group.has-success .form-input:focus,
+.form-group.has-success .form-select:focus,
+.form-group.has-success .form-textarea:focus {
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
