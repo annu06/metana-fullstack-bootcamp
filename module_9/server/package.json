@@ -1,0 +1,28 @@
+{
+  "name": "authentication-backend",
+  "version": "1.0.0",
+  "description": "Backend server with JWT authentication and role-based access control",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "install:all": "npm install && cd ../client && npm install",
+    "setup-db": "node scripts/initDb.js",
+    "seed-db": "node scripts/seedDb.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "pg": "^8.11.3",
+    "bcrypt": "^5.1.1",
+    "jsonwebtoken": "^9.0.2",
+    "validator": "^13.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": ["express", "jwt", "authentication", "postgresql"],
+  "author": "Student",
+  "license": "MIT"
+}
