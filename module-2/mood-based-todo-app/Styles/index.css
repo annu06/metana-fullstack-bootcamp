@@ -69,21 +69,6 @@ body {
     gap: 1rem;
 }
 
-.mood-indicator {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: rgba(52, 73, 94, 0.8);
-    padding: 0.75rem 1rem;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 0.9rem;
-}
-
-.mood-indicator:hover {
-    background: rgba(52, 73, 94, 1);
-}
-
 .icon-btn {
     width: 48px;
     height: 48px;
