@@ -1,0 +1,142 @@
+.mood-selector-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: white;
+}
+
+.mood-selector-container h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.mood-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.mood-option {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 1.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.mood-option:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.mood-option.active {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: #fff;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.mood-icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.mood-label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.confirm-mood-btn {
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 8px 20px rgba(238, 90, 36, 0.3);
+}
+
+.confirm-mood-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(238, 90, 36, 0.4);
+}
+
+.confirm-mood-btn:disabled {
+    background: rgba(255, 255, 255, 0.2);
+    cursor: not-allowed;
+    box-shadow: none;
+    opacity: 0.6;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .mood-selector-container {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+    
+    .mood-selector-container h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .mood-options {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .mood-option {
+        padding: 1rem 0.5rem;
+    }
+    
+    .mood-icon {
+        font-size: 2.5rem;
+    }
+    
+    .mood-label {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .mood-options {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .mood-option {
+        flex-direction: row;
+        justify-content: flex-start;
+        text-align: left;
+        padding: 1rem;
+    }
+    
+    .mood-icon {
+        font-size: 2rem;
+        margin-bottom: 0;
+        margin-right: 1rem;
+    }
+}
