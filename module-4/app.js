@@ -19,6 +19,10 @@ app.set('views', './views');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 
+// Import API routes
+const apiRoutes = require('./routes/api');
+app.use('/api', apiRoutes);
+
 // Sample tasks data (in a real app, this would be stored in a database)
 let tasks = [
   { id: 1, title: 'Morning Run', duration: '20 mins', time: '06:00 AM', status: 'backlog' },
@@ -208,7 +212,12 @@ app.post('/api/tasks', (req, res) => {
   res.status(201).json({ task: newTask });
 });
 
+// Import error handler
+const errorHandler = require('./middleware/errorHandler');
+app.use(errorHandler);
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`API endpoints available at http://localhost:${PORT}/api`);
 });
