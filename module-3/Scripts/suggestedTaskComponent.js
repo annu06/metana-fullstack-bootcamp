@@ -46,6 +46,8 @@ function addSuggestedTaskToDOM(task, mood) {
       <div>${mood} ${weather}</div>
       <small>Based on<br><a href="#">Mood & Weather</a></small>
       <span class="checkmark">✔</span>
+      <button class="edit-btn" title="Edit Suggested Task">✎</button>
+      <button class="delete-btn" title="Delete Suggested Task">🗑</button>
     </div>
   `;
   
@@ -53,13 +55,22 @@ function addSuggestedTaskToDOM(task, mood) {
   suggestedCard.querySelector('.checkmark').addEventListener('click', () => {
     addSuggestedTaskToTasks(task);
   });
-  
   // Add event listener for the task title link
   suggestedCard.querySelector('h4 a').addEventListener('click', (e) => {
     e.preventDefault();
     addSuggestedTaskToTasks(task);
   });
-  
+  // Edit button event
+  suggestedCard.querySelector('.edit-btn').addEventListener('click', (e) => {
+    e.stopPropagation();
+    showEditTaskDialog(task);
+  });
+  // Delete button event
+  suggestedCard.querySelector('.delete-btn').addEventListener('click', (e) => {
+    e.stopPropagation();
+    suggestedCard.remove();
+    // Optionally, remove from localStorage if needed
+  });
   suggestedTasksContainer.appendChild(suggestedCard);
 }
 

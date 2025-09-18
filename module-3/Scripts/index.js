@@ -17,8 +17,16 @@ document.addEventListener('DOMContentLoaded', () => {
 // Set up UI interactions for buttons and components
 function setupUIInteractions() {
   const addTaskBtn = document.querySelector('.task-controls .btn');
-  const profileBtn = document.querySelector('.icon-btn:nth-child(3)');
-  const moodBtn = document.querySelector('.mood-btn');
+  const weatherBtn = document.getElementById('weather-btn');
+  const profileBtn = document.getElementById('profile-btn');
+  const moodBtn = document.getElementById('mood-btn');
+  // Weather button opens weather modal
+  weatherBtn.addEventListener('click', () => {
+    document.getElementById('weather-modal').style.display = 'flex';
+  });
+  document.getElementById('weather-modal-close').addEventListener('click', () => {
+    document.getElementById('weather-modal').style.display = 'none';
+  });
   
   // Add Task button opens task creation form
   addTaskBtn.addEventListener('click', () => {

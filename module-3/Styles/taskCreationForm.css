@@ -1,5 +1,18 @@
 .task-form {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.task-form input,
+.task-form textarea,
+.task-form select {
+  width: 90%;
+  max-width: 260px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 .task-form h2 {

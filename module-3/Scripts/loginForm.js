@@ -12,6 +12,10 @@ function createLoginDialog() {
     dialog.className = 'dialog-overlay';
     dialog.innerHTML = `
       <div class="dialog-content">
+        <div class="modal-avatar">
+          <span>👤</span>
+        </div>
+        <button class="modal-close" id="login-close-btn" title="Close">&times;</button>
         <form class="login-form" id="login-form">
           <h2>Login</h2>
           <div class="form-group">
@@ -44,6 +48,10 @@ function createLoginDialog() {
       dialog.style.display = 'none';
       resetLoginForm();
     });
+    document.getElementById('login-close-btn').addEventListener('click', () => {
+      dialog.style.display = 'none';
+      resetLoginForm();
+    });
     
     document.getElementById('login-form').addEventListener('submit', (e) => {
       e.preventDefault();
@@ -63,6 +71,10 @@ function showEditProfileForm(user) {
     editDialog.className = 'dialog-overlay';
     editDialog.innerHTML = `
       <div class="dialog-content">
+        <div class="modal-avatar">
+          <span>👤</span>
+        </div>
+        <button class="modal-close" id="edit-profile-close-btn" title="Close">&times;</button>
         <form class="login-form" id="edit-profile-form">
           <h2>Edit Profile</h2>
           <div class="form-group">
@@ -87,6 +99,9 @@ function showEditProfileForm(user) {
         </form>
       </div>
     `;
+    document.getElementById('edit-profile-close-btn').addEventListener('click', () => {
+      editDialog.style.display = 'none';
+    });
     
     document.body.appendChild(editDialog);
     

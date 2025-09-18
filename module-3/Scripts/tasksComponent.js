@@ -40,6 +40,7 @@ function addTaskToDOM(task) {
     <p>${task.duration} mins</p>
     <strong>${formatTime(task.dueDate)}</strong>
     <span class="checkmark">${task.completed ? '✓' : '✔'}</span>
+    <button class="edit-btn">Edit</button>
     <button class="delete-btn">Delete</button>
   `;
   
@@ -49,15 +50,20 @@ function addTaskToDOM(task) {
     e.stopPropagation(); // Prevent task edit dialog from opening
     deleteTask(task.id);
   });
-  
-  // Open edit task dialog when clicking on the task
+  taskCard.querySelector('.edit-btn').addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent card click
+    showEditTaskDialog(task);
+  });
+  // Open edit task dialog when clicking on the task (except on checkmark, delete, or edit button)
   taskCard.addEventListener('click', (e) => {
-    // Don't open edit dialog if clicking on checkmark or delete button
-    if (!e.target.classList.contains('checkmark') && !e.target.classList.contains('delete-btn')) {
+    if (!e.target.classList.contains('checkmark') && !e.target.classList.contains('delete-btn') && !e.target.classList.contains('edit-btn')) {
       showEditTaskDialog(task);
     }
   });
   
+  // Remove no-tasks message if present
+  const noTasksMsg = tasksList.querySelector('.no-tasks');
+  if (noTasksMsg) noTasksMsg.remove();
   tasksList.appendChild(taskCard);
 }
 
@@ -138,11 +144,14 @@ function deleteTask(taskId) {
     const incompleteTasks = updatedTasks.filter(task => !task.completed);
     document.querySelector('.tasks-header p').textContent = 
       `You have ${incompleteTasks.length} tasks planned for today`;
-    
     // Show empty message if no tasks left
+    const tasksList = document.querySelector('.tasks-list');
     if (updatedTasks.length === 0) {
-      document.querySelector('.tasks-list').innerHTML = 
-        '<p class="no-tasks">No tasks yet. Add a task to get started!</p>';
+      tasksList.innerHTML = '<p class="no-tasks">No tasks yet. Add a task to get started!</p>';
+    } else {
+      // Remove no-tasks message if present
+      const noTasksMsg = tasksList.querySelector('.no-tasks');
+      if (noTasksMsg) noTasksMsg.remove();
     }
   }, 300);
   

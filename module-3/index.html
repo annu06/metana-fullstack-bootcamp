@@ -23,9 +23,21 @@
       </div>
     </div>
     <div class="mood-icons">
-      <button class="mood-btn">Mood: 🙂</button>
-      <button class="icon-btn">🔊</button>
-      <button class="icon-btn">👤</button>
+    <button class="mood-btn" id="mood-btn">Mood: 🙂</button>
+  <button class="icon-btn" id="weather-btn" title="Show Weather"><img src="Assets/weather-icon.svg" alt="Weather" style="width:24px;height:24px;vertical-align:middle;"></button>
+  <!-- Weather Modal -->
+  <div class="dialog-overlay" id="weather-modal" style="display:none;">
+    <div class="dialog-content" style="min-width:300px;max-width:350px;">
+      <div class="modal-avatar" style="top:-32px;"><img src="Assets/weather-icon.svg" alt="Weather" style="width:48px;height:48px;"></div>
+      <button class="modal-close" id="weather-modal-close" title="Close">&times;</button>
+      <h2>Weather Information</h2>
+      <div style="margin:1.5rem 0;">
+        <p style="font-size:1.2rem;">Current Weather: <span id="weather-info">Sunny, 28°C</span></p>
+        <p style="color:#b4ff00;">Stay hydrated and plan your tasks accordingly!</p>
+      </div>
+    </div>
+  </div>
+  <button class="icon-btn" id="profile-btn">👤</button>
     </div>
   </header>
 
@@ -44,7 +56,7 @@
       </div>
 
       <div class="tasks-list">
-        <p class="no-tasks">No tasks yet. Add a task to get started!</p>
+        <!-- No tasks message will be managed by JS -->
       </div>
     </section>
 
