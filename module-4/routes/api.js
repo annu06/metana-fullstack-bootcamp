@@ -1,6 +1,10 @@
+
 // API Routes for Task Management
 const express = require('express');
 const router = express.Router();
+
+// In-memory tasks array (temporary, for demo/testing)
+let tasks = [];
 
 // GET /api/tasks - Get all tasks
 router.get('/tasks', (req, res) => {

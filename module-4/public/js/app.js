@@ -1,3 +1,22 @@
+// Profile Modal Logic
+document.addEventListener('DOMContentLoaded', function() {
+    const profileBtn = document.getElementById('profile-button');
+    const profileModal = document.getElementById('profile-modal');
+    const profileModalClose = document.getElementById('profile-modal-close');
+    if (profileBtn && profileModal && profileModalClose) {
+        profileBtn.addEventListener('click', function() {
+            profileModal.style.display = 'flex';
+        });
+        profileModalClose.addEventListener('click', function() {
+            profileModal.style.display = 'none';
+        });
+        profileModal.addEventListener('click', function(e) {
+            if (e.target === profileModal) {
+                profileModal.style.display = 'none';
+            }
+        });
+    }
+});
 document.addEventListener('DOMContentLoaded', function() {
     // DOM Elements
     const weatherButton = document.getElementById('weather-button');
