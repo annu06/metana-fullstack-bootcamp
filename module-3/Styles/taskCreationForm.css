@@ -1,0 +1,91 @@
+.task-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.task-form input,
+.task-form textarea,
+.task-form select {
+  width: 90%;
+  max-width: 260px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.task-form h2 {
+  color: var(--green);
+  margin-top: 0;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--gray);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background: #2a2b3d;
+  color: var(--text);
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--green);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 480px) {
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .form-actions button {
+    width: 100%;
+  }
+}
+
+.form-actions button {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.form-actions .cancel-btn {
+  background: #333;
+  color: var(--text);
+}
+
+.form-actions .submit-btn {
+  background: var(--green);
+  color: #000;
+}
+
+.error-message {
+  color: #ff3a3a;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}

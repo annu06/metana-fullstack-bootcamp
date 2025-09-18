@@ -1,0 +1,83 @@
+.login-form {
+  width: 100%;
+}
+
+.login-form h2 {
+  color: var(--green);
+  margin-top: 0;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--gray);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background: #2a2b3d;
+  color: var(--text);
+  font-family: inherit;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--green);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+@media (max-width: 480px) {
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .form-actions button {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.form-actions button {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.form-actions .cancel-btn {
+  background: #333;
+  color: var(--text);
+}
+
+.form-actions .login-btn,
+.form-actions .save-btn {
+  background: var(--green);
+  color: #000;
+}
+
+.form-actions .logout-btn {
+  background: #ff3a3a;
+  color: white;
+}
+
+.error-message {
+  color: #ff3a3a;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
