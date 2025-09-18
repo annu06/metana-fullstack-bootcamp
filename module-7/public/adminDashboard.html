@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - John Doe Portfolio</title>
+    <link href="./css/output.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Sidebar -->
+    <aside class="fixed inset-y-0 left-0 w-64 bg-gray-900 text-white transform -translate-x-full lg:translate-x-0 transition-transform duration-200 ease-in-out z-50" id="sidebar">
+        <div class="flex items-center justify-center h-16 bg-gray-800">
+            <h1 class="text-xl font-bold">Admin Dashboard</h1>
+        </div>
+        <nav class="mt-8">
+            <div class="px-4 space-y-2">
+                <a href="#dashboard" class="sidebar-link active" data-section="dashboard">
+                    <i class="fas fa-chart-bar w-5"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#blog-management" class="sidebar-link" data-section="blog-management">
+                    <i class="fas fa-blog w-5"></i>
+                    <span>Blog Management</span>
+                </a>
+                <a href="#projects" class="sidebar-link" data-section="projects">
+                    <i class="fas fa-folder w-5"></i>
+                    <span>Projects</span>
+                </a>
+                <a href="#messages" class="sidebar-link" data-section="messages">
+                    <i class="fas fa-envelope w-5"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="#analytics" class="sidebar-link" data-section="analytics">
+                    <i class="fas fa-chart-line w-5"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="#settings" class="sidebar-link" data-section="settings">
+                    <i class="fas fa-cog w-5"></i>
+                    <span>Settings</span>
+                </a>
+            </div>
+            <div class="absolute bottom-0 w-full p-4">
+                <a href="/" class="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>View Site</span>
+                </a>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- Mobile sidebar overlay -->
+    <div class="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden hidden" id="sidebar-overlay"></div>
+
+    <!-- Main Content -->
+    <div class="lg:ml-64">
+        <!-- Top Navigation -->
+        <header class="bg-white shadow-sm border-b">
+            <div class="flex items-center justify-between px-6 py-4">
+                <div class="flex items-center">
+                    <button class="lg:hidden text-gray-600 hover:text-gray-900 mr-4" id="mobile-menu-btn">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                    <h2 class="text-xl font-semibold text-gray-900" id="page-title">Dashboard</h2>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="relative text-gray-600 hover:text-gray-900">
+                        <i class="fas fa-bell text-xl"></i>
+                        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                    </button>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 bg-primary-500 rounded-full flex items-center justify-center">
+                            <span class="text-white font-semibold">JD</span>
+                        </div>
+                        <span class="text-gray-700 font-medium">John Doe</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Section -->
+        <main class="p-6" id="main-content">
+            <div class="section active" id="dashboard-section">
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm">Total Blog Posts</p>
+                                <p class="text-3xl font-bold text-gray-900">24</p>
+                                <p class="text-green-600 text-sm mt-1">
+                                    <i class="fas fa-arrow-up"></i> +12% from last month
+                                </p>
+                            </div>
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-blog text-blue-600 text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm">Monthly Views</p>
+                                <p class="text-3xl font-bold text-gray-900">8,432</p>
+                                <p class="text-green-600 text-sm mt-1">
+                                    <i class="fas fa-arrow-up"></i> +23% from last month
+                                </p>
+                            </div>
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-eye text-green-600 text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm">New Messages</p>
+                                <p class="text-3xl font-bold text-gray-900">12</p>
+                                <p class="text-red-600 text-sm mt-1">
+                                    <i class="fas fa-arrow-down"></i> -5% from last month
+                                </p>
+                            </div>
+                            <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-envelope text-yellow-600 text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-gray-600 text-sm">Projects</p>
+                                <p class="text-3xl font-bold text-gray-900">8</p>
+                                <p class="text-green-600 text-sm mt-1">
+                                    <i class="fas fa-arrow-up"></i> +2 new this month
+                                </p>
+                            </div>
+                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-folder text-purple-600 text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Row -->
+                <div class="grid lg:grid-cols-2 gap-6 mb-8">
+                    <!-- Traffic Chart -->
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Monthly Traffic</h3>
+                        <div class="h-64 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-lg flex items-center justify-center">
+                            <div class="text-center">
+                                <i class="fas fa-chart-area text-4xl text-blue-500 mb-4"></i>
+                                <p class="text-gray-600">Chart visualization would go here</p>
+                                <p class="text-sm text-gray-500">Integration with Chart.js or similar</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Recent Activity</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-plus text-green-600 text-sm"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium text-gray-900">New blog post published</p>
+                                    <p class="text-xs text-gray-500">2 hours ago</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-message text-blue-600 text-sm"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium text-gray-900">New contact message received</p>
+                                    <p class="text-xs text-gray-500">4 hours ago</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-code text-purple-600 text-sm"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium text-gray-900">Project updated: Portfolio V2</p>
+                                    <p class="text-xs text-gray-500">1 day ago</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-star text-yellow-600 text-sm"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium text-gray-900">Blog post featured on homepage</p>
+                                    <p class="text-xs text-gray-500">2 days ago</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <button class="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors text-center" onclick="showSection('blog-management')">
+                            <i class="fas fa-plus text-blue-600 text-2xl mb-2"></i>
+                            <p class="text-sm font-medium text-gray-900">New Blog Post</p>
+                        </button>
+                        <button class="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors text-center" onclick="showSection('projects')">
+                            <i class="fas fa-folder-plus text-green-600 text-2xl mb-2"></i>
+                            <p class="text-sm font-medium text-gray-900">Add Project</p>
+                        </button>
+                        <button class="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors text-center" onclick="showSection('messages')">
+                            <i class="fas fa-envelope-open text-yellow-600 text-2xl mb-2"></i>
+                            <p class="text-sm font-medium text-gray-900">View Messages</p>
+                        </button>
+                        <button class="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors text-center" onclick="showSection('analytics')">
+                            <i class="fas fa-chart-bar text-purple-600 text-2xl mb-2"></i>
+                            <p class="text-sm font-medium text-gray-900">View Analytics</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Management Section -->
+            <div class="section" id="blog-management-section">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900">Blog Management</h2>
+                    <button class="btn-primary" onclick="showModal('new-blog-modal')">
+                        <i class="fas fa-plus mr-2"></i>
+                        New Blog Post
+                    </button>
+                </div>
+
+                <!-- Blog Posts Table -->
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                    <div class="p-6 border-b">
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <div class="flex-1">
+                                <input type="text" placeholder="Search blog posts..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                            </div>
+                            <select class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                <option>All Status</option>
+                                <option>Published</option>
+                                <option>Draft</option>
+                                <option>Archived</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Views</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="font-medium text-gray-900">Building Scalable React Applications</div>
+                                        <div class="text-sm text-gray-500">A comprehensive guide to React architecture...</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Published</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Sep 15, 2025</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">1,234</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
+                                        <button class="text-blue-600 hover:text-blue-900">Edit</button>
+                                        <button class="text-green-600 hover:text-green-900">View</button>
+                                        <button class="text-red-600 hover:text-red-900">Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="font-medium text-gray-900">React 18 Concurrent Features</div>
+                                        <div class="text-sm text-gray-500">Deep dive into React 18's new features...</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 py-1 text-xs font-medium bg-yellow-100 text-yellow-800 rounded-full">Draft</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Sep 10, 2025</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">0</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
+                                        <button class="text-blue-600 hover:text-blue-900">Edit</button>
+                                        <button class="text-green-600 hover:text-green-900">Publish</button>
+                                        <button class="text-red-600 hover:text-red-900">Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="font-medium text-gray-900">PostgreSQL Performance Tips</div>
+                                        <div class="text-sm text-gray-500">Optimize your database queries...</div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <span class="px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Published</span>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Sep 8, 2025</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">892</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
+                                        <button class="text-blue-600 hover:text-blue-900">Edit</button>
+                                        <button class="text-green-600 hover:text-green-900">View</button>
+                                        <button class="text-red-600 hover:text-red-900">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects Section -->
+            <div class="section" id="projects-section">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900">Projects</h2>
+                    <button class="btn-primary" onclick="showModal('new-project-modal')">
+                        <i class="fas fa-plus mr-2"></i>
+                        Add Project
+                    </button>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Project Card 1 -->
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                        <div class="h-48 bg-gradient-to-br from-purple-400 to-pink-600 flex items-center justify-center">
+                            <i class="fas fa-shopping-cart text-white text-4xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-gray-900 mb-2">E-commerce Platform</h3>
+                            <p class="text-gray-600 text-sm mb-4">Full-stack e-commerce solution with React and Node.js</p>
+                            <div class="flex items-center justify-between">
+                                <span class="px-2 py-1 bg-green-100 text-green-800 rounded text-xs">Active</span>
+                                <div class="flex space-x-2">
+                                    <button class="text-blue-600 hover:text-blue-900 text-sm">Edit</button>
+                                    <button class="text-red-600 hover:text-red-900 text-sm">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2 -->
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                        <div class="h-48 bg-gradient-to-br from-blue-400 to-cyan-600 flex items-center justify-center">
+                            <i class="fas fa-mobile-alt text-white text-4xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-gray-900 mb-2">Task Management App</h3>
+                            <p class="text-gray-600 text-sm mb-4">Mobile-first task management with real-time sync</p>
+                            <div class="flex items-center justify-between">
+                                <span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded text-xs">In Progress</span>
+                                <div class="flex space-x-2">
+                                    <button class="text-blue-600 hover:text-blue-900 text-sm">Edit</button>
+                                    <button class="text-red-600 hover:text-red-900 text-sm">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3 -->
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                        <div class="h-48 bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center">
+                            <i class="fas fa-chart-line text-white text-4xl"></i>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-gray-900 mb-2">Analytics Dashboard</h3>
+                            <p class="text-gray-600 text-sm mb-4">Real-time analytics and data visualization platform</p>
+                            <div class="flex items-center justify-between">
+                                <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs">Completed</span>
+                                <div class="flex space-x-2">
+                                    <button class="text-blue-600 hover:text-blue-900 text-sm">Edit</button>
+                                    <button class="text-red-600 hover:text-red-900 text-sm">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Messages Section -->
+            <div class="section" id="messages-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Messages</h2>
+                
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                    <div class="p-6 border-b">
+                        <div class="flex items-center space-x-4">
+                            <input type="text" placeholder="Search messages..." class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                            <select class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                <option>All Messages</option>
+                                <option>Unread</option>
+                                <option>Read</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="divide-y divide-gray-200">
+                        <!-- Message 1 -->
+                        <div class="p-6 hover:bg-gray-50 transition-colors">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-semibold text-gray-900">Sarah Johnson</h3>
+                                <span class="text-sm text-gray-500">2 hours ago</span>
+                            </div>
+                            <p class="text-gray-600 mb-2">sarah.johnson@email.com</p>
+                            <p class="text-gray-800 mb-3">Hi John, I loved your recent blog post about React architecture. Would you be interested in collaborating on a project?</p>
+                            <div class="flex space-x-3">
+                                <button class="btn-primary text-sm">Reply</button>
+                                <button class="btn-outline text-sm">Mark as Read</button>
+                                <button class="text-red-600 hover:text-red-900 text-sm">Delete</button>
+                            </div>
+                        </div>
+
+                        <!-- Message 2 -->
+                        <div class="p-6 hover:bg-gray-50 transition-colors">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-semibold text-gray-900">Mike Chen</h3>
+                                <span class="text-sm text-gray-500">1 day ago</span>
+                            </div>
+                            <p class="text-gray-600 mb-2">mike.chen@techcorp.com</p>
+                            <p class="text-gray-800 mb-3">Great work on the portfolio! Our team is looking for a React developer. Are you available for freelance work?</p>
+                            <div class="flex space-x-3">
+                                <button class="btn-primary text-sm">Reply</button>
+                                <button class="btn-outline text-sm">Mark as Read</button>
+                                <button class="text-red-600 hover:text-red-900 text-sm">Delete</button>
+                            </div>
+                        </div>
+
+                        <!-- Message 3 -->
+                        <div class="p-6 hover:bg-gray-50 transition-colors opacity-75">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-semibold text-gray-900">Emma Davis</h3>
+                                <span class="text-sm text-gray-500">3 days ago</span>
+                            </div>
+                            <p class="text-gray-600 mb-2">emma.davis@startup.io</p>
+                            <p class="text-gray-800 mb-3">Thanks for the helpful blog post about PostgreSQL optimization. It really helped improve our database performance!</p>
+                            <div class="flex space-x-3">
+                                <button class="btn-outline text-sm">Reply</button>
+                                <span class="text-sm text-gray-500">Read</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics Section -->
+            <div class="section" id="analytics-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Analytics</h2>
+                
+                <!-- Analytics Overview -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Page Views</h3>
+                        <div class="text-3xl font-bold text-blue-600 mb-2">24,567</div>
+                        <div class="text-sm text-green-600">
+                            <i class="fas fa-arrow-up"></i> +15% this month
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Unique Visitors</h3>
+                        <div class="text-3xl font-bold text-green-600 mb-2">8,432</div>
+                        <div class="text-sm text-green-600">
+                            <i class="fas fa-arrow-up"></i> +23% this month
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Bounce Rate</h3>
+                        <div class="text-3xl font-bold text-yellow-600 mb-2">42%</div>
+                        <div class="text-sm text-red-600">
+                            <i class="fas fa-arrow-down"></i> -5% this month
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top Pages -->
+                <div class="bg-white rounded-xl shadow-sm p-6 mb-8">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Top Pages</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-900">/blogs/building-scalable-react-applications</span>
+                            <span class="text-gray-600">3,456 views</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-900">/</span>
+                            <span class="text-gray-600">2,890 views</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-900">/blogs</span>
+                            <span class="text-gray-600">1,567 views</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-900">/blogs/react-18-concurrent-features</span>
+                            <span class="text-gray-600">1,234 views</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Traffic Sources -->
+                <div class="bg-white rounded-xl shadow-sm p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Traffic Sources</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-900">Direct</span>
+                            <span class="text-gray-600">45%</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-900">Search Engines</span>
+                            <span class="text-gray-600">32%</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-900">Social Media</span>
+                            <span class="text-gray-600">15%</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-900">Referrals</span>
+                            <span class="text-gray-600">8%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Section -->
+            <div class="section" id="settings-section">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Settings</h2>
+                
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <!-- Profile Settings -->
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Profile Settings</h3>
+                        <form class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                                <input type="text" value="John Doe" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                <input type="email" value="john.doe@email.com" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Bio</label>
+                                <textarea rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">Full Stack Developer passionate about creating exceptional digital experiences.</textarea>
+                            </div>
+                            <button type="submit" class="btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+
+                    <!-- Site Settings -->
+                    <div class="bg-white rounded-xl shadow-sm p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Site Settings</h3>
+                        <form class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Site Title</label>
+                                <input type="text" value="John Doe - Portfolio" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Site Description</label>
+                                <textarea rows="2" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">Full Stack Developer & Technical Writer</textarea>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="maintenance" class="h-4 w-4 text-primary-600 rounded border-gray-300 focus:ring-primary-500">
+                                <label for="maintenance" class="ml-2 text-sm text-gray-700">Maintenance Mode</label>
+                            </div>
+                            <button type="submit" class="btn-primary">Save Settings</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- New Blog Modal -->
+    <div class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden" id="new-blog-modal">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-xl max-w-2xl w-full max-h-screen overflow-y-auto">
+                <div class="p-6 border-b">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-semibold text-gray-900">Create New Blog Post</h3>
+                        <button onclick="hideModal('new-blog-modal')" class="text-gray-400 hover:text-gray-600">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Title</label>
+                            <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Category</label>
+                            <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                                <option>Web Development</option>
+                                <option>React</option>
+                                <option>Node.js</option>
+                                <option>Database</option>
+                                <option>DevOps</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Summary</label>
+                            <textarea rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Content</label>
+                            <textarea rows="8" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"></textarea>
+                        </div>
+                        <div class="flex justify-end space-x-3">
+                            <button type="button" onclick="hideModal('new-blog-modal')" class="btn-outline">Cancel</button>
+                            <button type="submit" class="btn-primary">Create Post</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Project Modal -->
+    <div class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden" id="new-project-modal">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-xl max-w-2xl w-full max-h-screen overflow-y-auto">
+                <div class="p-6 border-b">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-semibold text-gray-900">Add New Project</h3>
+                        <button onclick="hideModal('new-project-modal')" class="text-gray-400 hover:text-gray-600">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Project Name</label>
+                            <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Description</label>
+                            <textarea rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Technologies</label>
+                            <input type="text" placeholder="React, Node.js, MongoDB" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Project URL</label>
+                            <input type="url" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">GitHub URL</label>
+                            <input type="url" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                        </div>
+                        <div class="flex justify-end space-x-3">
+                            <button type="button" onclick="hideModal('new-project-modal')" class="btn-outline">Cancel</button>
+                            <button type="submit" class="btn-primary">Add Project</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sidebar navigation
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+        const sections = document.querySelectorAll('.section');
+        const pageTitle = document.getElementById('page-title');
+
+        function showSection(sectionName) {
+            // Hide all sections
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Remove active class from all links
+            sidebarLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Show selected section
+            const targetSection = document.getElementById(sectionName + '-section');
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+
+            // Add active class to selected link
+            const targetLink = document.querySelector(`[data-section="${sectionName}"]`);
+            if (targetLink) {
+                targetLink.classList.add('active');
+            }
+
+            // Update page title
+            const titles = {
+                'dashboard': 'Dashboard',
+                'blog-management': 'Blog Management',
+                'projects': 'Projects',
+                'messages': 'Messages',
+                'analytics': 'Analytics',
+                'settings': 'Settings'
+            };
+            pageTitle.textContent = titles[sectionName] || 'Dashboard';
+        }
+
+        // Sidebar link click handlers
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const section = link.getAttribute('data-section');
+                showSection(section);
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            sidebarOverlay.classList.toggle('hidden');
+        });
+
+        sidebarOverlay.addEventListener('click', () => {
+            sidebar.classList.add('-translate-x-full');
+            sidebarOverlay.classList.add('hidden');
+        });
+
+        // Modal functions
+        function showModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+        }
+
+        function hideModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+
+        // Close modals when clicking outside
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('bg-black')) {
+                const modals = document.querySelectorAll('[id$="-modal"]');
+                modals.forEach(modal => {
+                    modal.classList.add('hidden');
+                });
+            }
+        });
+
+        // Initialize dashboard
+        showSection('dashboard');
+    </script>
+
+    <style>
+        .sidebar-link {
+            @apply flex items-center space-x-3 px-4 py-2 text-gray-300 rounded-lg hover:bg-gray-800 hover:text-white transition-colors;
+        }
+
+        .sidebar-link.active {
+            @apply bg-primary-600 text-white;
+        }
+
+        .section {
+            @apply hidden;
+        }
+
+        .section.active {
+            @apply block;
+        }
+    </style>
+</body>
+</html>
