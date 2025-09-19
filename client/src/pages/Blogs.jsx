@@ -1,0 +1,1 @@
+// Blogs page
