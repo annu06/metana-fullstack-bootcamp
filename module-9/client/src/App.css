@@ -1,0 +1,119 @@
+/* Modern CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  background: linear-gradient(120deg, #f0f4ff 0%, #e0e7ff 100%);
+  color: #222;
+  min-height: 100vh;
+}
+header {
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 1.2rem 0;
+  margin-bottom: 2rem;
+}
+nav {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 1.1rem;
+}
+nav a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.3rem 0.7rem;
+  border-radius: 0.4rem;
+  transition: background 0.2s, color 0.2s;
+}
+nav a:hover {
+  background: #e0e7ff;
+  color: #1d4ed8;
+}
+nav button {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 0.4rem;
+  padding: 0.3rem 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-left: 1rem;
+  transition: background 0.2s;
+}
+nav button:hover {
+  background: #1d4ed8;
+}
+.container {
+  max-width: 420px;
+  margin: 2.5rem auto;
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  padding: 2.5rem 2rem 2rem 2rem;
+}
+h2 {
+  color: #2563eb;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+form label {
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+  padding: 0.7rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  background: #f8fafc;
+  transition: border 0.2s;
+}
+form input:focus {
+  border: 1.5px solid #2563eb;
+  outline: none;
+}
+form button[type="submit"] {
+  background: linear-gradient(90deg, #2563eb 60%, #1d4ed8 100%);
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.7rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.2s;
+}
+form button[type="submit"]:hover {
+  background: linear-gradient(90deg, #1d4ed8 60%, #2563eb 100%);
+}
+.error {
+  color: #e11d48;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 0.4rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+footer {
+  text-align: center;
+  color: #888;
+  padding: 2rem 0 1rem 0;
+  font-size: 1rem;
+  background: none;
+}

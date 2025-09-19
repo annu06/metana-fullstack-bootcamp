@@ -1,0 +1,2 @@
+-- setup-db.sql - SQL for initial DB setup
+-- TODO: Add SQL schema
