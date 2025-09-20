@@ -1,0 +1,79 @@
+/* Suggested Tasks */
+.suggested-section {
+    background: rgba(44, 62, 80, 0.6);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.suggested-task {
+    background: rgba(44, 62, 80, 0.8);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.suggested-task:hover {
+    transform: translateY(-3px);
+    background: rgba(44, 62, 80, 1);
+}
+
+.suggested-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.suggested-icon {
+    font-size: 2.5rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.suggested-meta {
+    opacity: 0.7;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+}
+
+.weather-info {
+    color: #9acd32;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+/* Delete Button Styles for Suggested Tasks */
+.suggested-task .task-delete {
+    position: absolute;
+    bottom: 1rem;
+    right: 4rem;
+    width: 28px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #fff;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.suggested-task .task-delete:hover {
+    background: #e74c3c;
+    border-color: #e74c3c;
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.4);
+}

@@ -1,0 +1,188 @@
+<!-- Mood Selector Form Component -->
+<div class="mood-selector" id="moodSelector">
+    <h3>How are you feeling today?</h3>
+    
+    <div class="mood-options">
+        <div class="mood-option" data-mood="happy" onclick="selectMood('happy')">
+            <span class="mood-emoji">😊</span>
+            <span class="mood-label">Happy</span>
+        </div>
+        
+        <div class="mood-option" data-mood="energetic" onclick="selectMood('energetic')">
+            <span class="mood-emoji">⚡</span>
+            <span class="mood-label">Energetic</span>
+        </div>
+        
+        <div class="mood-option" data-mood="calm" onclick="selectMood('calm')">
+            <span class="mood-emoji">😌</span>
+            <span class="mood-label">Calm</span>
+        </div>
+        
+        <div class="mood-option" data-mood="focused" onclick="selectMood('focused')">
+            <span class="mood-emoji">🎯</span>
+            <span class="mood-label">Focused</span>
+        </div>
+        
+        <div class="mood-option" data-mood="creative" onclick="selectMood('creative')">
+            <span class="mood-emoji">🎨</span>
+            <span class="mood-label">Creative</span>
+        </div>
+        
+        <div class="mood-option" data-mood="stressed" onclick="selectMood('stressed')">
+            <span class="mood-emoji">😰</span>
+            <span class="mood-label">Stressed</span>
+        </div>
+        
+        <div class="mood-option" data-mood="tired" onclick="selectMood('tired')">
+            <span class="mood-emoji">😴</span>
+            <span class="mood-label">Tired</span>
+        </div>
+        
+        <div class="mood-option" data-mood="motivated" onclick="selectMood('motivated')">
+            <span class="mood-emoji">🔥</span>
+            <span class="mood-label">Motivated</span>
+        </div>
+    </div>
+    
+    <div class="mood-description" id="moodDescription">
+        Select your current mood to get personalized task suggestions
+    </div>
+    
+    <div class="mood-actions">
+        <button class="mood-btn primary" onclick="applyMoodFilter()" id="applyMoodBtn" disabled>
+            Apply Mood Filter
+        </button>
+        <button class="mood-btn secondary" onclick="clearMoodFilter()">
+            Clear Filter
+        </button>
+    </div>
+</div>
+
+<script>
+let selectedMood = null;
+
+const moodDescriptions = {
+    happy: "Great! When you're happy, you're more productive. Try tackling creative or social tasks.",
+    energetic: "Perfect energy for physical tasks, workouts, or challenging projects!",
+    calm: "A peaceful state ideal for meditation, reading, or gentle organizing tasks.",
+    focused: "Excellent for deep work, studying, or tasks requiring concentration.",
+    creative: "Perfect time for brainstorming, writing, designing, or artistic projects.",
+    stressed: "Take it easy. Focus on simple, calming tasks or stress-relief activities.",
+    tired: "Rest is important. Consider light tasks or planning for tomorrow.",
+    motivated: "Channel this drive into your most important or challenging goals!"
+};
+
+function selectMood(mood) {
+    // Remove previous selection
+    document.querySelectorAll('.mood-option').forEach(option => {
+        option.classList.remove('selected');
+    });
+    
+    // Add selection to clicked mood
+    document.querySelector(`[data-mood="${mood}"]`).classList.add('selected');
+    
+    // Update selected mood
+    selectedMood = mood;
+    
+    // Update description
+    document.getElementById('moodDescription').textContent = moodDescriptions[mood];
+    
+    // Enable apply button
+    document.getElementById('applyMoodBtn').disabled = false;
+}
+
+function applyMoodFilter() {
+    if (!selectedMood) return;
+    
+    // Store mood in localStorage for persistence
+    localStorage.setItem('currentMood', selectedMood);
+    
+    // Trigger mood-based task filtering
+    if (typeof filterTasksByMood === 'function') {
+        filterTasksByMood(selectedMood);
+    }
+    
+    // Close mood selector if it's in a modal
+    if (typeof closeMoodModal === 'function') {
+        closeMoodModal();
+    }
+    
+    // Show success message
+    showNotification(`Mood set to ${selectedMood}! Tasks filtered accordingly.`);
+}
+
+function clearMoodFilter() {
+    // Clear selection
+    document.querySelectorAll('.mood-option').forEach(option => {
+        option.classList.remove('selected');
+    });
+    
+    selectedMood = null;
+    
+    // Reset description
+    document.getElementById('moodDescription').textContent = 
+        'Select your current mood to get personalized task suggestions';
+    
+    // Disable apply button
+    document.getElementById('applyMoodBtn').disabled = true;
+    
+    // Clear from localStorage
+    localStorage.removeItem('currentMood');
+    
+    // Show all tasks
+    if (typeof showAllTasks === 'function') {
+        showAllTasks();
+    }
+    
+    showNotification('Mood filter cleared. Showing all tasks.');
+}
+
+function showNotification(message) {
+    // Simple notification system
+    const notification = document.createElement('div');
+    notification.className = 'notification';
+    notification.textContent = message;
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 15px 20px;
+        border-radius: 10px;
+        z-index: 1000;
+        animation: slideIn 0.3s ease;
+    `;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.remove();
+    }, 3000);
+}
+
+// Load saved mood on page load
+document.addEventListener('DOMContentLoaded', function() {
+    const savedMood = localStorage.getItem('currentMood');
+    if (savedMood) {
+        selectMood(savedMood);
+    }
+});
+</script>
+
+<style>
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.notification {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+</style>
