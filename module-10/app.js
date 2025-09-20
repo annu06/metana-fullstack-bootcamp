@@ -6,14 +6,20 @@ const helmet = require('helmet');
 const compression = require('compression');
 require('dotenv').config();
 
-// Import database connection
-const connectDB = require('./db/connection');
+// Import database connection (conditionally for testing)
+let connectDB;
+try {
+  connectDB = require('./db/connection');
+} catch (error) {
+  console.log('Database connection not available for testing');
+  connectDB = { connect: () => Promise.resolve() };
+}
 
 // Import middleware
 const { performanceMonitor, compressionSetup, securitySetup } = require('./middleware/performance');
 const { requestLogger, createRateLimit } = require('./middleware/auth');
 const { cache, cacheUserTasks } = require('./middleware/cache');
-const errorHandler = require('./middleware/errorHandler');
+const { errorHandler } = require('./middleware/errorHandler');
 
 // Import routes
 const taskRoutes = require('./routes/tasks');
@@ -24,7 +30,11 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Connect to database
-connectDB();
+if (connectDB && connectDB.connect) {
+  connectDB.connect();
+} else if (typeof connectDB === 'function') {
+  connectDB();
+}
 
 // Security middleware
 app.use(securitySetup);

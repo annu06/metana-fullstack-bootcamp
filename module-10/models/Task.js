@@ -212,7 +212,7 @@ TaskIntegrationSchema.statics.getOverdueTasks = function(userId) {
 
 TaskIntegrationSchema.statics.getTaskStats = function(userId) {
   return this.aggregate([
-    { $match: { user: mongoose.Types.ObjectId(userId) } },
+    { $match: { user: new mongoose.Types.ObjectId(userId) } },
     {
       $group: {
         _id: '$status',
@@ -223,7 +223,7 @@ TaskIntegrationSchema.statics.getTaskStats = function(userId) {
 };
 
 TaskIntegrationSchema.statics.getMoodDistribution = function(userId, startDate, endDate) {
-  const matchCondition = { user: mongoose.Types.ObjectId(userId) };
+  const matchCondition = { user: new mongoose.Types.ObjectId(userId) };
   
   if (startDate && endDate) {
     matchCondition.createdAt = {
@@ -289,4 +289,4 @@ TaskIntegrationSchema.methods.addCollaborator = function(userId, role = 'viewer'
   return this.save();
 };
 
-module.exports = mongoose.model('TaskIntegration', TaskIntegrationSchema);
+module.exports = mongoose.model('Task', TaskIntegrationSchema);

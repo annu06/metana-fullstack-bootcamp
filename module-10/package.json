@@ -6,9 +6,12 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "test": "jest --coverage",
-    "test:watch": "jest --watch",
-    "test:ci": "jest --ci --coverage --watchAll=false",
+    "test": "jest --config jest.config.js",
+    "test:watch": "jest --config jest.config.js --watch",
+    "test:coverage": "jest --config jest.config.js --coverage",
+    "test:ci": "jest --config jest.config.js --ci --coverage --watchAll=false",
+    "test:e2e": "jest --config jest.e2e.config.js",
+    "test:all": "npm run test && npm run test:e2e",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "build": "npm run lint && npm run test:ci",
@@ -19,7 +22,9 @@
     "deploy": "npm run build && npm run docker:build",
     "seed": "node scripts/seeder.js",
     "migrate": "node scripts/migrate.js",
-    "backup": "node scripts/backup.js"
+    "backup": "node scripts/backup.js",
+    "start:client": "cd client && npm start",
+    "start:all": "concurrently \"npm run dev\" \"npm run start:client\""
   },
   "keywords": ["nodejs", "express", "mongodb", "todo", "mood", "fullstack"],
   "author": "Module 10 Integration",
@@ -48,13 +53,19 @@
     "nodemon": "^3.0.1",
     "jest": "^29.6.2",
     "supertest": "^6.3.3",
+    "cross-env": "^7.0.3",
     "eslint": "^8.47.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.28.1",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "@types/jest": "^29.5.4"
+    "@types/jest": "^29.5.4",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/jest-dom": "^6.0.0",
+    "selenium-webdriver": "^4.11.1",
+    "concurrently": "^8.2.0",
+    "chromedriver": "^116.0.0"
   },
   "engines": {
     "node": ">=14.0.0",
