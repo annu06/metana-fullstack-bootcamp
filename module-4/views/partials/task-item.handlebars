@@ -19,4 +19,15 @@
     <div class="task-time">
         {{time}}
     </div>
+    
+    <div class="task-actions">
+        {{#unless completed}}
+        <button class="edit-task-button" data-id="{{id}}" title="Edit Task">
+            <span>✏️</span>
+        </button>
+        {{/unless}}
+        <button class="delete-task-button" data-id="{{id}}" title="Delete Task">
+            <span>🗑️</span>
+        </button>
+    </div>
 </div>

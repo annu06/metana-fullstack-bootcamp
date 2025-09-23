@@ -3,18 +3,71 @@ document.addEventListener('DOMContentLoaded', function() {
     const profileBtn = document.getElementById('profile-button');
     const profileModal = document.getElementById('profile-modal');
     const profileModalClose = document.getElementById('profile-modal-close');
+    const profileForm = document.getElementById('profile-form');
+    
+    // Load saved user name from localStorage
+    const savedName = localStorage.getItem('userName');
+    if (savedName) {
+        updateGuestName(savedName);
+    }
+    
     if (profileBtn && profileModal && profileModalClose) {
         profileBtn.addEventListener('click', function() {
             profileModal.style.display = 'flex';
         });
+        
         profileModalClose.addEventListener('click', function() {
             profileModal.style.display = 'none';
         });
+        
         profileModal.addEventListener('click', function(e) {
             if (e.target === profileModal) {
                 profileModal.style.display = 'none';
             }
         });
+    }
+    
+    // Handle form submission
+    if (profileForm) {
+        profileForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nameInput = document.getElementById('user-name');
+            const emailInput = document.getElementById('user-email');
+            const passwordInput = document.getElementById('user-password');
+            const rememberMe = document.getElementById('remember-me');
+            
+            const userName = nameInput.value.trim();
+            const userEmail = emailInput.value.trim();
+            const userPassword = passwordInput.value.trim();
+            
+            if (userName && userEmail && userPassword) {
+                // Save user data if remember me is checked
+                if (rememberMe.checked) {
+                    localStorage.setItem('userName', userName);
+                    localStorage.setItem('userEmail', userEmail);
+                }
+                
+                // Update the guest name display
+                updateGuestName(userName);
+                
+                // Close the modal
+                profileModal.style.display = 'none';
+                
+                // Show success message (optional)
+                alert('Welcome, ' + userName + '!');
+                
+                // Clear the form
+                profileForm.reset();
+            }
+        });
+    }
+    
+    function updateGuestName(name) {
+        const guestNameElement = document.querySelector('.header-left p');
+        if (guestNameElement) {
+            guestNameElement.textContent = name + '.';
+        }
     }
 });
 document.addEventListener('DOMContentLoaded', function() {
@@ -28,6 +81,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const addTaskButton = document.getElementById('add-task-button');
     const addTaskModal = document.getElementById('add-task-modal');
     const addTaskForm = document.getElementById('add-task-form');
+    const editTaskModal = document.getElementById('edit-task-modal');
+    const editTaskForm = document.getElementById('edit-task-form');
     const showCompletedButton = document.getElementById('show-completed-button');
     const completedTasksContainer = document.getElementById('completed-tasks-container');
     const taskList = document.getElementById('task-list');
@@ -99,21 +154,82 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Add task modal
-        addTaskButton.addEventListener('click', () => {
-            addTaskModal.style.display = 'block';
-        });
+        if (addTaskButton && addTaskModal) {
+            addTaskButton.addEventListener('click', () => {
+                console.log('Add task button clicked');
+                addTaskModal.style.display = 'block';
+            });
+        } else {
+            console.error('Add task button or modal not found');
+        }
+        
+        // Close add task modal
+        const addTaskModalClose = document.querySelector('#add-task-modal .close-button');
+        if (addTaskModalClose) {
+            addTaskModalClose.addEventListener('click', () => {
+                addTaskModal.style.display = 'none';
+            });
+        }
+        
+        // Close modal when clicking outside
+        if (addTaskModal) {
+            addTaskModal.addEventListener('click', (e) => {
+                if (e.target === addTaskModal) {
+                    addTaskModal.style.display = 'none';
+                }
+            });
+        }
         
         // Add task form submission
-        addTaskForm.addEventListener('submit', event => {
-            event.preventDefault();
-            const title = document.getElementById('task-title').value;
-            const duration = document.getElementById('task-duration').value;
-            const time = document.getElementById('task-time').value;
-            
-            addTask(title, duration, time);
-            addTaskModal.style.display = 'none';
-            addTaskForm.reset();
-        });
+        if (addTaskForm) {
+            addTaskForm.addEventListener('submit', event => {
+                event.preventDefault();
+                console.log('Add task form submitted');
+                
+                const title = document.getElementById('task-title').value;
+                const duration = document.getElementById('task-duration').value;
+                const time = document.getElementById('task-time').value;
+                
+                console.log('Task data:', { title, duration, time });
+                
+                addTask(title, duration, time);
+                addTaskModal.style.display = 'none';
+                addTaskForm.reset();
+            });
+        } else {
+            console.error('Add task form not found');
+        }
+        
+        // Edit task modal
+        const editTaskModalClose = document.getElementById('edit-modal-close');
+        if (editTaskModalClose && editTaskModal) {
+            editTaskModalClose.addEventListener('click', () => {
+                editTaskModal.style.display = 'none';
+            });
+        }
+        
+        // Close edit modal when clicking outside
+        if (editTaskModal) {
+            editTaskModal.addEventListener('click', (e) => {
+                if (e.target === editTaskModal) {
+                    editTaskModal.style.display = 'none';
+                }
+            });
+        }
+        
+        // Edit task form submission
+        if (editTaskForm) {
+            editTaskForm.addEventListener('submit', event => {
+                event.preventDefault();
+                const id = document.getElementById('edit-task-id').value;
+                const title = document.getElementById('edit-task-title').value;
+                const duration = document.getElementById('edit-task-duration').value;
+                const time = document.getElementById('edit-task-time').value;
+                
+                updateTask(id, title, duration, time);
+                editTaskModal.style.display = 'none';
+            });
+        }
         
         // Complete all tasks
         const completeAllButton = document.querySelector('.complete-all-button');
@@ -169,20 +285,51 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Task completion toggle
+        // Delegated task action handler (complete/uncomplete/edit)
         document.addEventListener('click', event => {
-            if (event.target.classList.contains('task-complete-button') || 
-                event.target.parentElement.classList.contains('task-complete-button')) {
-                const button = event.target.classList.contains('task-complete-button') ? 
-                              event.target : event.target.parentElement;
-                const taskId = button.getAttribute('data-id');
-                toggleTaskStatus(taskId);
-            } else if (event.target.classList.contains('task-uncomplete-button') || 
-                       event.target.parentElement.classList.contains('task-uncomplete-button')) {
-                const button = event.target.classList.contains('task-uncomplete-button') ? 
-                              event.target : event.target.parentElement;
-                const taskId = button.getAttribute('data-id');
-                toggleTaskStatus(taskId);
+            const target = event.target;
+
+            // helper to find the actionable button element even if clicking an inner element
+            function findButtonWithClass(el, className) {
+                if (!el) return null;
+                if (el.classList && el.classList.contains(className)) return el;
+                if (el.parentElement && el.parentElement.classList && el.parentElement.classList.contains(className)) return el.parentElement;
+                return null;
+            }
+
+            // Handle complete/uncomplete
+            const completeButton = findButtonWithClass(target, 'task-complete-button') || findButtonWithClass(target, 'task-uncomplete-button');
+            if (completeButton) {
+                const taskId = completeButton.getAttribute('data-id');
+                if (taskId) toggleTaskStatus(taskId);
+                return;
+            }
+
+            // Handle edit button (delegated so server-rendered items work)
+            const editButton = findButtonWithClass(target, 'edit-task-button');
+            if (editButton) {
+                const taskId = editButton.getAttribute('data-id');
+                // Try to read task fields from the DOM for server-rendered items
+                const taskItem = editButton.closest('.task-item');
+                const title = taskItem ? (taskItem.querySelector('.task-info h3') ? taskItem.querySelector('.task-info h3').textContent : '') : '';
+                const duration = taskItem ? (taskItem.querySelector('.task-details span') ? taskItem.querySelector('.task-details span').textContent : '') : '';
+                const time = taskItem ? (taskItem.querySelector('.task-time') ? taskItem.querySelector('.task-time').textContent : '') : '';
+
+                openEditModal({ id: taskId, title, duration, time });
+                return;
+            }
+
+            // Handle delete button
+            const deleteButton = findButtonWithClass(target, 'delete-task-button');
+            if (deleteButton) {
+                const taskId = deleteButton.getAttribute('data-id');
+                if (taskId && confirm('Delete this task?')) {
+                    fetch(`/api/tasks/${taskId}`, { method: 'DELETE' })
+                        .then(res => res.json())
+                        .then(() => refreshTasks())
+                        .catch(err => console.error('Error deleting task:', err));
+                }
+                return;
             }
         });
     }
@@ -199,6 +346,44 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(error => {
                 console.error('Error fetching weather data:', error);
             });
+    }
+
+    // Re-render all tasks from server to keep UI in sync
+    function refreshTasks() {
+        fetch('/api/tasks')
+            .then(res => res.json())
+            .then(payload => {
+                const items = payload && payload.data ? payload.data : [];
+                renderTaskLists(items);
+                updateTaskCount();
+            })
+            .catch(err => console.error('Error refreshing tasks:', err));
+    }
+
+    function renderTaskLists(items) {
+        if (!Array.isArray(items)) return;
+        // Clear lists
+        if (taskList) taskList.innerHTML = '';
+        if (completedTaskList) completedTaskList.innerHTML = '';
+
+        let hasCompleted = false;
+        items.forEach(task => {
+            if (task.status === 'completed') {
+                hasCompleted = true;
+                completedTaskList.appendChild(createTaskElement({ ...task, status: 'completed' }));
+            } else {
+                taskList.appendChild(createTaskElement({ ...task, status: 'backlog' }));
+            }
+        });
+
+        // Toggle completed container visibility based on items
+        if (hasCompleted) {
+            completedTasksContainer.style.display = 'block';
+            if (showCompletedButton) showCompletedButton.textContent = 'Hide Completed';
+        } else {
+            completedTasksContainer.style.display = 'none';
+            if (showCompletedButton) showCompletedButton.textContent = 'Show Completed';
+        }
     }
     
     function updateWeatherUI() {
@@ -377,6 +562,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function addTask(title, duration, time) {
+        console.log('addTask function called with:', { title, duration, time });
+        
         // Format time if not provided
         if (!time) {
             const now = new Date();
@@ -393,6 +580,8 @@ document.addEventListener('DOMContentLoaded', function() {
             time: time
         };
         
+        console.log('Sending task data:', taskData);
+        
         fetch('/api/tasks', {
             method: 'POST',
             headers: {
@@ -400,15 +589,18 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             body: JSON.stringify(taskData)
         })
-        .then(response => response.json())
+        .then(response => {
+            console.log('Response status:', response.status);
+            return response.json();
+        })
         .then(data => {
-            if (data.task) {
-                // Add new task to the UI
-                const taskElement = createTaskElement(data.task);
-                taskList.appendChild(taskElement);
-                
-                // Update task count
-                updateTaskCount();
+            console.log('Response data:', data);
+            const created = data && data.data;
+            if (created) {
+                // Refresh from server to avoid mismatches
+                refreshTasks();
+            } else {
+                console.error('No task data received');
             }
         })
         .catch(error => {
@@ -417,44 +609,23 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function toggleTaskStatus(taskId) {
-        fetch(`/api/tasks/${taskId}/toggle`, {
-            method: 'POST'
+        // Determine current UI status and flip
+        const taskItem = document.querySelector(`.task-item[data-id="${taskId}"]`);
+        if (!taskItem) return;
+
+        const isCompleted = taskItem.classList.contains('completed');
+        const newStatus = isCompleted ? 'backlog' : 'completed';
+
+        fetch(`/api/tasks/${taskId}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ status: newStatus })
         })
         .then(response => response.json())
         .then(data => {
-            if (data.task) {
-                // Update UI based on task status
-                const taskItem = document.querySelector(`.task-item[data-id="${taskId}"]`);
-                
-                if (data.task.status === 'completed') {
-                    // Move to completed list
-                    taskItem.remove();
-                    const completedTaskElement = createCompletedTaskElement(data.task);
-                    completedTaskList.appendChild(completedTaskElement);
-                    
-                    // Update task count
-                    updateTaskCount();
-                    
-                    // Show completed tasks container if it's hidden
-                    if (completedTasksContainer.style.display === 'none') {
-                        completedTasksContainer.style.display = 'block';
-                        showCompletedButton.textContent = 'Hide Completed';
-                    }
-                } else {
-                    // Move back to task list (from completed to backlog)
-                    taskItem.remove();
-                    const taskElement = createTaskElement(data.task);
-                    taskList.appendChild(taskElement);
-                    
-                    // Update task count
-                    updateTaskCount();
-                    
-                    // Hide completed tasks container if it's empty
-                    if (completedTaskList.children.length === 0) {
-                        completedTasksContainer.style.display = 'none';
-                        showCompletedButton.textContent = 'Show Completed';
-                    }
-                }
+            const updated = data && data.data;
+            if (updated) {
+                refreshTasks();
             }
         })
         .catch(error => {
@@ -470,11 +641,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function createTaskElement(task) {
         const taskElement = document.createElement('div');
-        taskElement.className = 'task-item';
+        taskElement.className = `task-item ${task.status === 'completed' ? 'completed' : ''}`;
         taskElement.setAttribute('data-id', task.id);
-        
+
+        const isCompleted = task.status === 'completed';
+
         taskElement.innerHTML = `
-            <button class="task-complete-button" data-id="${task.id}">
+            <button class="${isCompleted ? 'task-uncomplete-button' : 'task-complete-button'}" data-id="${task.id}">
                 <span class="checkmark">✓</span>
             </button>
             <div class="task-info">
@@ -485,32 +658,76 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             <div class="task-time">
                 ${task.time}
+            </div>
+            <div class="task-actions">
+                ${!isCompleted ? `
+                <button class="edit-task-button" data-id="${task.id}" title="Edit Task">
+                    <span>✏️</span>
+                </button>` : ''}
+                <button class="delete-task-button" data-id="${task.id}" title="Delete Task">
+                    <span>🗑️</span>
+                </button>
             </div>
         `;
         
         return taskElement;
     }
-    
+
     function createCompletedTaskElement(task) {
-        const taskElement = document.createElement('div');
-        taskElement.className = 'task-item completed';
-        taskElement.setAttribute('data-id', task.id);
+        return createTaskElement({ ...task, status: 'completed' });
+    }
+    
+    function openEditModal(task) {
+        console.log('Opening edit modal for task:', task);
         
-        taskElement.innerHTML = `
-            <button class="task-uncomplete-button" data-id="${task.id}">
-                <span class="checkmark">✓</span>
-            </button>
-            <div class="task-info">
-                <h3>${task.title}</h3>
-                <div class="task-details">
-                    <span>${task.duration}</span>
-                </div>
-            </div>
-            <div class="task-time">
-                ${task.time}
-            </div>
-        `;
+        if (!editTaskModal) {
+            console.error('Edit task modal not found');
+            return;
+        }
         
-        return taskElement;
+        // Populate the edit form with current task data
+        const idField = document.getElementById('edit-task-id');
+        const titleField = document.getElementById('edit-task-title');
+        const durationField = document.getElementById('edit-task-duration');
+        const timeField = document.getElementById('edit-task-time');
+        
+        if (idField) idField.value = task.id;
+        if (titleField) titleField.value = task.title;
+        if (durationField) durationField.value = task.duration;
+        if (timeField) timeField.value = task.time;
+        
+        // Show the edit modal
+        editTaskModal.style.display = 'block';
+    }
+    
+    function updateTask(id, title, duration, time) {
+        const taskData = {
+            title,
+            duration: duration || '30 mins',
+            time: time
+        };
+        
+        fetch(`/api/tasks/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(taskData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            const updated = data && data.data;
+            if (updated) {
+                // Find and update the task element in the UI
+                const oldTaskElement = document.querySelector(`.task-item[data-id="${id}"]`);
+                if (oldTaskElement) {
+                    // Safer: refresh lists to avoid stale nodes
+                    refreshTasks();
+                }
+            }
+        })
+        .catch(error => {
+            console.error('Error updating task:', error);
+        });
     }
 });

@@ -37,10 +37,32 @@
 
     <!-- Profile Modal -->
     <div class="modal-overlay" id="profile-modal" style="display:none;">
-        <div class="modal-content">
+        <div class="modal-content profile-modal-content">
             <button class="modal-close" id="profile-modal-close">&times;</button>
-            <h2>Profile</h2>
-            <p>Welcome, Guest!</p>
+            <h2>Log in</h2>
+            <form id="profile-form" class="profile-form">
+                <div class="form-group">
+                    <label for="user-name">Name</label>
+                    <input type="text" id="user-name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="user-email">Email</label>
+                    <input type="email" id="user-email" name="email" placeholder="Enter email" required>
+                </div>
+                <div class="form-group">
+                    <label for="user-password">Password</label>
+                    <input type="password" id="user-password" name="password" placeholder="Enter password" required>
+                </div>
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="remember-me" name="remember">
+                        <span class="checkmark"></span>
+                        Remember me
+                    </label>
+                </div>
+                <button type="submit" class="sign-in-button">Sign in</button>
+                <a href="#" class="forgot-password">Forgot password?</a>
+            </form>
         </div>
     </div>
     <script src="/js/app.js"></script>

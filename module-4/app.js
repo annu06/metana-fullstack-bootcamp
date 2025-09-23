@@ -23,12 +23,14 @@ app.use(express.json());
 const apiRoutes = require('./routes/api');
 app.use('/api', apiRoutes);
 
-// Sample tasks data (in a real app, this would be stored in a database)
-let tasks = [
+// Shared tasks store
+const store = require('./data/tasksStore');
+// Seed initial tasks once at boot if empty
+store.seedIfEmpty([
   { id: 1, title: 'Morning Run', duration: '20 mins', time: '06:00 AM', status: 'backlog' },
   { id: 2, title: 'Meditation', duration: '15 mins', time: '07:00 AM', status: 'backlog' },
   { id: 3, title: 'Read a Book', duration: '45 mins', time: '08:00 PM', status: 'backlog' }
-];
+]);
 
 // Weather-based task suggestions
 const weatherSuggestions = {
@@ -50,8 +52,9 @@ const moodSuggestions = {
 
 // Routes
 app.get('/', (req, res) => {
-  const backlogTasks = tasks.filter(task => task.status === 'backlog');
-  const completedTasks = tasks.filter(task => task.status === 'completed');
+  const all = store.getAll();
+  const backlogTasks = all.filter(task => task.status === 'backlog');
+  const completedTasks = all.filter(task => task.status === 'completed');
   
   res.render('home', {
     tasks: backlogTasks,
@@ -104,7 +107,7 @@ app.get('/api/weather', async (req, res) => {
     }
     
     // Make the actual API call if a valid API key is provided
-    const response = await axios.get(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${lat},${lon}`);
+  const response = await axios.get(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${lat},${lon}&aqi=no`);
     
     const weatherData = {
       temperature: response.data.current.temp_c,
@@ -179,38 +182,7 @@ app.get('/api/mood-suggestions', (req, res) => {
   res.json({ mood, suggestedTasks: suggestions });
 });
 
-// API endpoint to toggle task status
-app.post('/api/tasks/:id/toggle', (req, res) => {
-  const taskId = parseInt(req.params.id);
-  const task = tasks.find(t => t.id === taskId);
-  
-  if (!task) {
-    return res.status(404).json({ error: 'Task not found' });
-  }
-  
-  task.status = task.status === 'backlog' ? 'completed' : 'backlog';
-  res.json({ task });
-});
-
-// API endpoint to add a new task
-app.post('/api/tasks', (req, res) => {
-  const { title, duration, time } = req.body;
-  
-  if (!title) {
-    return res.status(400).json({ error: 'Title is required' });
-  }
-  
-  const newTask = {
-    id: tasks.length > 0 ? Math.max(...tasks.map(t => t.id)) + 1 : 1,
-    title,
-    duration: duration || '30 mins',
-    time: time || '12:00 PM',
-    status: 'backlog'
-  };
-  
-  tasks.push(newTask);
-  res.status(201).json({ task: newTask });
-});
+// Remove duplicate task endpoints from app.js.
 
 // Import error handler
 const errorHandler = require('./middleware/errorHandler');
