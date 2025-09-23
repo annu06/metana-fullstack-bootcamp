@@ -1,5 +1,6 @@
 # Dependencies
-node_modules/
+# node_modules/ (temporarily committed by request)
+# node_modules/
 
 # Environment variables
 .env
@@ -39,7 +40,8 @@ bower_components
 build/Release
 
 # Dependency directories
-node_modules/
+# node_modules/ (temporarily committed by request)
+# node_modules/
 jspm_packages/
 
 # TypeScript v1 declaration files
