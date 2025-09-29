@@ -1,0 +1,8 @@
+# .gitignore for React
+node_modules/
+build/
+dist/
+.env
+.env.*
+.DS_Store
+*.log
