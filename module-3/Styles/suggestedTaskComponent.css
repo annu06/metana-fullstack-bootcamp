@@ -1,0 +1,57 @@
+.suggested-tasks {
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: 15px;
+}
+
+.suggested-tasks h3 {
+  color: var(--green);
+  margin-top: 0;
+}
+
+.suggested-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2c2d3a;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  word-break: break-word;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.suggested-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.suggested-card h4 a {
+  color: var(--green);
+  text-decoration: none;
+}
+
+.suggested-card h4 a:hover {
+  text-decoration: underline;
+}
+
+.mood-weather {
+  text-align: right;
+}
+
+.mood-weather small a {
+  color: var(--gray);
+  text-decoration: none;
+}
+
+.mood-weather small a:hover {
+  color: var(--green);
+}
+
+.suggested-card .checkmark {
+  color: var(--green);
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
