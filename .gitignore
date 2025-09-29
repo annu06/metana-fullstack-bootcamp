@@ -1,11 +1,26 @@
-# Dependencies
+### Root consolidated ignore (extended)
+
+# Package managers / dependencies
 node_modules/
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
-# Environment variables
+# Environment & secrets
 .env
+.env.*.local
+*.local.env
+*.env.local
+!.example.env
+!example.env
+!.env.example
+*.pem
+*.key
+*.crt
 
 # OS generated files
 .DS_Store
@@ -16,29 +31,114 @@ yarn-error.log*
 ehthumbs.db
 Thumbs.db
 
-# Editor directories and files
+# Editors / IDEs
 .vscode/
 .idea/
+.fleet/
 *.swp
 *.swo
 *~
+*.orig
+*.rej
 
-# Runtime data
+# TypeScript build outputs / build artifacts
+dist/
+build/
+out/
+coverage/
+.nyc_output/
+lib/
+*.tsbuildinfo
+
+# Caches
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+.ts-node-cache/
+.vite/
+.turbo/
+.next/
+next-env.d.ts
+.nuxt/
+.svelte-kit/
+.astro/
+
+# Testing / reports
+reports/
+coverage-final.json
+junit.xml
+lcov.info
+
+# Runtime data / pids
 pids
 *.pid
 *.seed
 *.pid.lock
 
-# Coverage directory used by tools like istanbul
-coverage/
-
-# Build directories
-dist/
-build/
-
 # Logs
 logs
 *.log
+logs/**/*.log
 
-# PostgreSQL
+# Temporary files
+tmp/
+temp/
+.tmp/
+*.tmp
+*.bak
+*.backup
+
+# Sass / Less cache
+.sass-cache/
+
+# Build tools artifacts
+.grunt/
+.bower-cache/
+.bower-registry/
+.bower-tmp/
+
+# Coverage tools
+.c8/
+
+# Node inspector
+.node_repl_history
+
+# Optional profiling
+profile-*.
+
+# Database / dumps
 *.dump
+*.sqlite
+*.sqlite3
+sqlite.db
+data/*.sqlite
+
+# Misc
+*.tgz
+.DS_Store
+
+# Yarn v2 / Berry
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+
+# Local serverless / vercel / deploy
+.vercel
+.serverless/
+
+# Docker
+Dockerfile.old
+docker-compose.override.yml
+.docker/**
+
+# Coverage & analysis
+/.sonarqube/
+.scannerwork/
+
+# Lock overrides (keep examples)
+!**/example.env
+!**/.env.example
