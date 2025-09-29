@@ -1,0 +1,24 @@
+{
+  "name": "module-7-portfolio",
+  "version": "1.0.0",
+  "description": "Personal Portfolio + Blog Application with TailwindCSS",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "build-css": "tailwindcss -i ./src/input.css -o ./public/css/output.css --watch"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "tailwindcss": "^3.3.3",
+    "@tailwindcss/typography": "^0.5.9",
+    "@tailwindcss/forms": "^0.5.4"
+  },
+  "keywords": ["portfolio", "blog", "tailwindcss", "express", "frontend"],
+  "author": "Metana Bootcamp Student",
+  "license": "MIT"
+}
