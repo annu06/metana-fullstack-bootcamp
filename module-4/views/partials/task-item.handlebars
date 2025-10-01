@@ -1,0 +1,33 @@
+<div class="task-item{{#if completed}} completed{{/if}}" data-id="{{id}}">
+    {{#if completed}}
+    <button class="task-uncomplete-button" data-id="{{id}}">
+        <span class="checkmark">✓</span>
+    </button>
+    {{else}}
+    <button class="task-complete-button" data-id="{{id}}">
+        <span class="checkmark">✓</span>
+    </button>
+    {{/if}}
+    
+    <div class="task-info">
+        <h3>{{title}}</h3>
+        <div class="task-details">
+            <span>{{duration}}</span>
+        </div>
+    </div>
+    
+    <div class="task-time">
+        {{time}}
+    </div>
+    
+    <div class="task-actions">
+        {{#unless completed}}
+        <button class="edit-task-button" data-id="{{id}}" title="Edit Task">
+            <span>✏️</span>
+        </button>
+        {{/unless}}
+        <button class="delete-task-button" data-id="{{id}}" title="Delete Task">
+            <span>🗑️</span>
+        </button>
+    </div>
+</div>
