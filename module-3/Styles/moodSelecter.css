@@ -1,0 +1,113 @@
+.mood-selector {
+  width: 100%;
+}
+
+.mood-selector h2 {
+  color: var(--green);
+  margin-top: 0;
+  text-align: center;
+}
+
+.mood-options {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+@media (max-width: 480px) {
+  .mood-options {
+    justify-content: center;
+  }
+  
+  .mood-option {
+    margin: 0 0.5rem;
+  }
+}
+
+.mood-option {
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.mood-option:hover {
+  transform: scale(1.1);
+}
+
+.mood-emoji {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.mood-label {
+  color: var(--gray);
+}
+
+.mood-option.selected .mood-emoji {
+  transform: scale(1.2);
+}
+
+.mood-option.selected .mood-label {
+  color: var(--green);
+  font-weight: bold;
+}
+
+.mood-slider {
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.mood-slider-track {
+  height: 8px;
+  background: #2a2b3d;
+  border-radius: 4px;
+  position: relative;
+}
+
+.mood-slider-fill {
+  height: 100%;
+  background: var(--green);
+  border-radius: 4px;
+  width: 50%;
+}
+
+.mood-slider-handle {
+  width: 24px;
+  height: 24px;
+  background: var(--green);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.mood-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+@media (max-width: 480px) {
+  .mood-actions {
+    flex-direction: column;
+  }
+  
+  .mood-actions button {
+    width: 100%;
+  }
+}
+
+.mood-actions button {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  background: var(--green);
+  color: #000;
+}
