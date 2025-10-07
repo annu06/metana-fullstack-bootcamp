@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog Posts - My Portfolio</title>
+  <link href="./output.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex-shrink-0">
+          <a href="/" class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Your Name
+          </a>
+        </div>
+        <div class="hidden md:block">
+          <ul class="flex space-x-8">
+            <li><a href="/" class="text-gray-700 hover:text-blue-600 transition-colors duration-200">Home</a></li>
+            <li><a href="/#about" class="text-gray-700 hover:text-blue-600 transition-colors duration-200">About</a></li>
+            <li><a href="/#skills" class="text-gray-700 hover:text-blue-600 transition-colors duration-200">Skills</a></li>
+            <li><a href="/blogs" class="text-blue-600 font-medium">Blog</a></li>
+            <li><a href="/#contact" class="text-gray-700 hover:text-blue-600 transition-colors duration-200">Contact</a></li>
+          </ul>
+        </div>
+        <!-- Mobile menu button -->
+        <div class="md:hidden">
+          <button class="text-gray-700 hover:text-blue-600">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="pt-20 pb-12 bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-5xl font-bold text-gray-900 mb-4">Blog Posts</h1>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Thoughts, tutorials, and insights on web development, technology, and programming
+      </p>
+    </div>
+  </header>
+
+  <!-- Search and Filter -->
+  <section class="py-8 bg-white border-b">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row gap-6 items-center justify-between">
+        <!-- Search -->
+        <div class="relative flex-1 max-w-md">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <i class="fas fa-search text-gray-400"></i>
+          </div>
+          <input type="text" id="searchInput" placeholder="Search articles..." 
+                 class="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+        </div>
+        
+        <!-- Filter Tags -->
+        <div class="flex flex-wrap gap-2">
+          <button class="filter-tag active px-4 py-2 bg-blue-600 text-white rounded-full text-sm font-medium hover:bg-blue-700 transition-colors duration-200" data-filter="all">
+            All Posts
+          </button>
+          <button class="filter-tag px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors duration-200" data-filter="javascript">
+            JavaScript
+          </button>
+          <button class="filter-tag px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors duration-200" data-filter="react">
+            React
+          </button>
+          <button class="filter-tag px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors duration-200" data-filter="nodejs">
+            Node.js
+          </button>
+          <button class="filter-tag px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors duration-200" data-filter="css">
+            CSS
+          </button>
+          <button class="filter-tag px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors duration-200" data-filter="tutorial">
+            Tutorials
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Posts Grid -->
+  <main class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="blogGrid">
+        
+        <!-- Blog Post 1 -->
+        <article class="blog-post bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden group" data-tags="javascript tutorial">
+          <div class="h-48 bg-gradient-to-br from-blue-400 to-purple-500 relative overflow-hidden">
+            <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
+              <i class="fab fa-js-square text-6xl text-white opacity-80"></i>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+              <i class="fas fa-calendar"></i>
+              <span>October 1, 2025</span>
+              <span>•</span>
+              <span>5 min read</span>
+            </div>
+            <h2 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-200">
+              How to Master JavaScript in 2025
+            </h2>
+            <p class="text-gray-600 mb-4 line-clamp-3">
+              A comprehensive guide to learning JavaScript effectively, covering modern ES6+ features, 
+              best practices, and essential concepts every developer should know. From basics to advanced topics.
+            </p>
+            <div class="flex items-center justify-between">
+              <div class="flex gap-2">
+                <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">JavaScript</span>
+                <span class="px-3 py-1 bg-green-100 text-green-800 text-xs rounded-full">Tutorial</span>
+              </div>
+              <a href="/blog/1" class="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200 flex items-center gap-1">
+                Read More <i class="fas fa-arrow-right text-sm"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Blog Post 2 -->
+        <article class="blog-post bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden group" data-tags="nodejs backend">
+          <div class="h-48 bg-gradient-to-br from-green-400 to-blue-500 relative overflow-hidden">
+            <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
+              <i class="fab fa-node-js text-6xl text-white opacity-80"></i>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+              <i class="fas fa-calendar"></i>
+              <span>September 28, 2025</span>
+              <span>•</span>
+              <span>8 min read</span>
+            </div>
+            <h2 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-200">
+              Building Scalable APIs with Node.js
+            </h2>
+            <p class="text-gray-600 mb-4 line-clamp-3">
+              Learn how to design and build robust, scalable APIs using Node.js and Express. 
+              Covers authentication, error handling, performance optimization, and deployment strategies.
+            </p>
+            <div class="flex items-center justify-between">
+              <div class="flex gap-2">
+                <span class="px-3 py-1 bg-green-100 text-green-800 text-xs rounded-full">Node.js</span>
+                <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Backend</span>
+              </div>
+              <a href="/blog/2" class="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200 flex items-center gap-1">
+                Read More <i class="fas fa-arrow-right text-sm"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Blog Post 3 -->
+        <article class="blog-post bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden group" data-tags="css design">
+          <div class="h-48 bg-gradient-to-br from-purple-400 to-pink-500 relative overflow-hidden">
+            <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
+              <i class="fab fa-css3-alt text-6xl text-white opacity-80"></i>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+              <i class="fas fa-calendar"></i>
+              <span>September 25, 2025</span>
+              <span>•</span>
+              <span>6 min read</span>
+            </div>
+            <h2 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-200">
+              Modern CSS Grid Layouts
+            </h2>
+            <p class="text-gray-600 mb-4 line-clamp-3">
+              Explore the power of CSS Grid and Flexbox to create complex, responsive layouts. 
+              Practical examples and real-world use cases with step-by-step implementations.
+            </p>
+            <div class="flex items-center justify-between">
+              <div class="flex gap-2">
+                <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">CSS</span>
+                <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">Design</span>
+              </div>
+              <a href="/blog/3" class="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200 flex items-center gap-1">
+                Read More <i class="fas fa-arrow-right text-sm"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Blog Post 4 -->
+        <article class="blog-post bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden group" data-tags="react javascript">
+          <div class="h-48 bg-gradient-to-br from-cyan-400 to-blue-500 relative overflow-hidden">
+            <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
+              <i class="fab fa-react text-6xl text-white opacity-80"></i>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+              <i class="fas fa-calendar"></i>
+              <span>September 22, 2025</span>
+              <span>•</span>
+              <span>7 min read</span>
+            </div>
+            <h2 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-200">
+              React Hooks Deep Dive
+            </h2>
+            <p class="text-gray-600 mb-4 line-clamp-3">
+              Understanding React Hooks from basics to advanced patterns. Learn useState, useEffect, 
+              custom hooks, and performance optimization techniques with practical examples.
+            </p>
+            <div class="flex items-center justify-between">
+              <div class="flex gap-2">
+                <span class="px-3 py-1 bg-cyan-100 text-cyan-800 text-xs rounded-full">React</span>
+                <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">JavaScript</span>
+              </div>
+              <a href="/blog/4" class="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200 flex items-center gap-1">
+                Read More <i class="fas fa-arrow-right text-sm"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Blog Post 5 -->
+        <article class="blog-post bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden group" data-tags="tutorial deployment">
+          <div class="h-48 bg-gradient-to-br from-orange-400 to-red-500 relative overflow-hidden">
+            <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
+              <i class="fas fa-cloud text-6xl text-white opacity-80"></i>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+              <i class="fas fa-calendar"></i>
+              <span>September 20, 2025</span>
+              <span>•</span>
+              <span>10 min read</span>
+            </div>
+            <h2 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-200">
+              Deploying Web Apps to the Cloud
+            </h2>
+            <p class="text-gray-600 mb-4 line-clamp-3">
+              Complete guide to deploying your web applications using modern cloud platforms. 
+              Covers Vercel, Netlify, AWS, and Docker containerization strategies.
+            </p>
+            <div class="flex items-center justify-between">
+              <div class="flex gap-2">
+                <span class="px-3 py-1 bg-orange-100 text-orange-800 text-xs rounded-full">Deployment</span>
+                <span class="px-3 py-1 bg-green-100 text-green-800 text-xs rounded-full">Tutorial</span>
+              </div>
+              <a href="/blog/5" class="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200 flex items-center gap-1">
+                Read More <i class="fas fa-arrow-right text-sm"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Blog Post 6 -->
+        <article class="blog-post bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden group" data-tags="javascript performance">
+          <div class="h-48 bg-gradient-to-br from-indigo-400 to-purple-500 relative overflow-hidden">
+            <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
+              <i class="fas fa-tachometer-alt text-6xl text-white opacity-80"></i>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+              <i class="fas fa-calendar"></i>
+              <span>September 18, 2025</span>
+              <span>•</span>
+              <span>9 min read</span>
+            </div>
+            <h2 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-200">
+              Web Performance Optimization
+            </h2>
+            <p class="text-gray-600 mb-4 line-clamp-3">
+              Techniques and strategies to optimize your web applications for speed and performance. 
+              Code splitting, lazy loading, image optimization, and Core Web Vitals.
+            </p>
+            <div class="flex items-center justify-between">
+              <div class="flex gap-2">
+                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-xs rounded-full">Performance</span>
+                <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">JavaScript</span>
+              </div>
+              <a href="/blog/6" class="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200 flex items-center gap-1">
+                Read More <i class="fas fa-arrow-right text-sm"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Load More Button -->
+      <div class="text-center mt-12">
+        <button class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium">
+          Load More Posts
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12 mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">Your Name</h3>
+          <p class="text-gray-400">
+            Full-stack developer passionate about creating amazing web experiences and sharing knowledge.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="/" class="hover:text-white transition-colors duration-200">Home</a></li>
+            <li><a href="/#about" class="hover:text-white transition-colors duration-200">About</a></li>
+            <li><a href="/blogs" class="hover:text-white transition-colors duration-200">Blog</a></li>
+            <li><a href="/#contact" class="hover:text-white transition-colors duration-200">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Follow Me</h4>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+              <i class="fab fa-github text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+              <i class="fab fa-linkedin text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+              <i class="fab fa-twitter text-xl"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+        <p>&copy; 2025 Your Name. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript for filtering and search -->
+  <script>
+    // Filter functionality
+    const filterTags = document.querySelectorAll('.filter-tag');
+    const blogPosts = document.querySelectorAll('.blog-post');
+    const searchInput = document.getElementById('searchInput');
+
+    // Filter by tags
+    filterTags.forEach(tag => {
+      tag.addEventListener('click', () => {
+        // Remove active class from all tags
+        filterTags.forEach(t => {
+          t.classList.remove('active', 'bg-blue-600', 'text-white');
+          t.classList.add('bg-gray-200', 'text-gray-700');
+        });
+        
+        // Add active class to clicked tag
+        tag.classList.add('active', 'bg-blue-600', 'text-white');
+        tag.classList.remove('bg-gray-200', 'text-gray-700');
+        
+        const filter = tag.getAttribute('data-filter');
+        
+        blogPosts.forEach(post => {
+          if (filter === 'all') {
+            post.style.display = 'block';
+          } else {
+            const postTags = post.getAttribute('data-tags');
+            if (postTags && postTags.includes(filter)) {
+              post.style.display = 'block';
+            } else {
+              post.style.display = 'none';
+            }
+          }
+        });
+      });
+    });
+
+    // Search functionality
+    searchInput.addEventListener('input', (e) => {
+      const searchTerm = e.target.value.toLowerCase();
+      
+      blogPosts.forEach(post => {
+        const title = post.querySelector('h2').textContent.toLowerCase();
+        const content = post.querySelector('p').textContent.toLowerCase();
+        
+        if (title.includes(searchTerm) || content.includes(searchTerm)) {
+          post.style.display = 'block';
+        } else {
+          post.style.display = 'none';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

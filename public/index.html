@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Portfolio - Professional Developer</title>
+  <link href="./output.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-white text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex-shrink-0">
+          <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Your Name
+          </h1>
+        </div>
+        <div class="hidden md:block">
+          <ul class="flex space-x-8">
+            <li><a href="#home" class="text-gray-700 hover:text-blue-600 transition-colors duration-200">Home</a></li>
+            <li><a href="#about" class="text-gray-700 hover:text-blue-600 transition-colors duration-200">About</a></li>
+            <li><a href="#skills" class="text-gray-700 hover:text-blue-600 transition-colors duration-200">Skills</a></li>
+            <li><a href="/blogs" class="text-gray-700 hover:text-blue-600 transition-colors duration-200">Blog</a></li>
+            <li><a href="#contact" class="text-gray-700 hover:text-blue-600 transition-colors duration-200">Contact</a></li>
+          </ul>
+        </div>
+        <!-- Mobile menu button -->
+        <div class="md:hidden">
+          <button class="text-gray-700 hover:text-blue-600">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="pt-20 bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen flex items-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-8">
+          <div class="space-y-4">
+            <h1 class="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+              Hi, I'm <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Your Name</span> 👋
+            </h1>
+            <p class="text-xl text-gray-600 leading-relaxed">
+              Full-stack Developer | Tech Enthusiast | Problem Solver
+            </p>
+            <p class="text-lg text-gray-500">
+              Passionate about creating innovative web solutions and sharing knowledge through writing.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <a href="#contact" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium">
+              Get In Touch
+            </a>
+            <a href="/blogs" class="border border-gray-300 text-gray-700 px-8 py-3 rounded-lg hover:bg-gray-50 transition-colors duration-200 font-medium">
+              Read My Blog
+            </a>
+          </div>
+          <div class="flex space-x-6">
+            <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors duration-200">
+              <i class="fab fa-github text-2xl"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors duration-200">
+              <i class="fab fa-linkedin text-2xl"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors duration-200">
+              <i class="fab fa-twitter text-2xl"></i>
+            </a>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="w-full h-96 bg-gradient-to-br from-blue-400 to-purple-500 rounded-2xl shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-300"></div>
+          <div class="absolute inset-0 w-full h-96 bg-white rounded-2xl shadow-xl flex items-center justify-center">
+            <i class="fas fa-code text-6xl text-gray-300"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Me -->
+  <section id="about" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">About Me</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          I'm a passionate developer with experience in building full-stack web applications
+        </p>
+      </div>
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+          <p class="text-lg text-gray-600 leading-relaxed">
+            With over 3 years of experience in web development, I specialize in creating modern, 
+            responsive applications using cutting-edge technologies. I believe in writing clean, 
+            maintainable code and staying up-to-date with the latest industry trends.
+          </p>
+          <p class="text-lg text-gray-600 leading-relaxed">
+            When I'm not coding, you can find me writing technical blog posts, contributing to 
+            open-source projects, or exploring new technologies. I'm passionate about sharing 
+            knowledge and helping other developers grow in their careers.
+          </p>
+          <div class="grid grid-cols-2 gap-6 pt-6">
+            <div>
+              <h4 class="font-semibold text-gray-900 mb-2">Experience</h4>
+              <p class="text-gray-600">3+ Years</p>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900 mb-2">Projects</h4>
+              <p class="text-gray-600">50+ Completed</p>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900 mb-2">Clients</h4>
+              <p class="text-gray-600">25+ Happy</p>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900 mb-2">Blog Posts</h4>
+              <p class="text-gray-600">30+ Articles</p>
+            </div>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="w-full h-80 bg-gray-200 rounded-2xl shadow-lg flex items-center justify-center">
+            <i class="fas fa-user text-6xl text-gray-400"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">Tech Stack & Skills</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Technologies and tools I use to bring ideas to life
+        </p>
+      </div>
+      
+      <!-- Frontend -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-semibold text-gray-900 mb-6 text-center">Frontend</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 text-center">
+            <i class="fab fa-js-square text-4xl text-yellow-500 mb-3"></i>
+            <p class="font-medium text-gray-900">JavaScript</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 text-center">
+            <i class="fab fa-react text-4xl text-blue-500 mb-3"></i>
+            <p class="font-medium text-gray-900">React</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 text-center">
+            <i class="fab fa-vuejs text-4xl text-green-500 mb-3"></i>
+            <p class="font-medium text-gray-900">Vue.js</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 text-center">
+            <i class="fab fa-html5 text-4xl text-orange-500 mb-3"></i>
+            <p class="font-medium text-gray-900">HTML5</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 text-center">
+            <i class="fab fa-css3-alt text-4xl text-blue-600 mb-3"></i>
+            <p class="font-medium text-gray-900">CSS3</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 text-center">
+            <i class="fas fa-wind text-4xl text-cyan-500 mb-3"></i>
+            <p class="font-medium text-gray-900">TailwindCSS</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Backend -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-semibold text-gray-900 mb-6 text-center">Backend</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 text-center">
+            <i class="fab fa-node-js text-4xl text-green-600 mb-3"></i>
+            <p class="font-medium text-gray-900">Node.js</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 text-center">
+            <i class="fas fa-server text-4xl text-gray-600 mb-3"></i>
+            <p class="font-medium text-gray-900">Express.js</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 text-center">
+            <i class="fab fa-python text-4xl text-yellow-600 mb-3"></i>
+            <p class="font-medium text-gray-900">Python</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 text-center">
+            <i class="fas fa-database text-4xl text-blue-600 mb-3"></i>
+            <p class="font-medium text-gray-900">MongoDB</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 text-center">
+            <i class="fas fa-database text-4xl text-indigo-600 mb-3"></i>
+            <p class="font-medium text-gray-900">PostgreSQL</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div>
+        <h3 class="text-2xl font-semibold text-gray-900 mb-6 text-center">Tools & Others</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 text-center">
+            <i class="fab fa-git-alt text-4xl text-red-500 mb-3"></i>
+            <p class="font-medium text-gray-900">Git</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 text-center">
+            <i class="fab fa-docker text-4xl text-blue-500 mb-3"></i>
+            <p class="font-medium text-gray-900">Docker</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 text-center">
+            <i class="fab fa-aws text-4xl text-orange-500 mb-3"></i>
+            <p class="font-medium text-gray-900">AWS</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 text-center">
+            <i class="fas fa-code-branch text-4xl text-purple-500 mb-3"></i>
+            <p class="font-medium text-gray-900">VS Code</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200 text-center">
+            <i class="fas fa-terminal text-4xl text-gray-600 mb-3"></i>
+            <p class="font-medium text-gray-900">Terminal</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Preview -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">Latest Blog Posts</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Insights, tutorials, and thoughts on web development
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Blog Card 1 -->
+        <article class="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden group">
+          <div class="h-48 bg-gradient-to-br from-blue-400 to-purple-500"></div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+              <i class="fas fa-calendar"></i>
+              <span>October 1, 2025</span>
+              <span>•</span>
+              <span>5 min read</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-200">
+              How to Master JavaScript in 2025
+            </h3>
+            <p class="text-gray-600 mb-4 line-clamp-3">
+              A comprehensive guide to learning JavaScript effectively, covering modern ES6+ features, 
+              best practices, and essential concepts every developer should know.
+            </p>
+            <div class="flex items-center justify-between">
+              <div class="flex gap-2">
+                <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">JavaScript</span>
+                <span class="px-3 py-1 bg-green-100 text-green-800 text-xs rounded-full">Tutorial</span>
+              </div>
+              <a href="/blog/1" class="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200">
+                Read More →
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Blog Card 2 -->
+        <article class="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden group">
+          <div class="h-48 bg-gradient-to-br from-green-400 to-blue-500"></div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+              <i class="fas fa-calendar"></i>
+              <span>September 28, 2025</span>
+              <span>•</span>
+              <span>8 min read</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-200">
+              Building Scalable APIs with Node.js
+            </h3>
+            <p class="text-gray-600 mb-4 line-clamp-3">
+              Learn how to design and build robust, scalable APIs using Node.js and Express. 
+              Covers authentication, error handling, and performance optimization.
+            </p>
+            <div class="flex items-center justify-between">
+              <div class="flex gap-2">
+                <span class="px-3 py-1 bg-green-100 text-green-800 text-xs rounded-full">Node.js</span>
+                <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">Backend</span>
+              </div>
+              <a href="/blog/2" class="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200">
+                Read More →
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Blog Card 3 -->
+        <article class="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden group">
+          <div class="h-48 bg-gradient-to-br from-purple-400 to-pink-500"></div>
+          <div class="p-6">
+            <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+              <i class="fas fa-calendar"></i>
+              <span>September 25, 2025</span>
+              <span>•</span>
+              <span>6 min read</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-200">
+              Modern CSS Grid Layouts
+            </h3>
+            <p class="text-gray-600 mb-4 line-clamp-3">
+              Explore the power of CSS Grid and Flexbox to create complex, responsive layouts. 
+              Practical examples and real-world use cases included.
+            </p>
+            <div class="flex items-center justify-between">
+              <div class="flex gap-2">
+                <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">CSS</span>
+                <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">Design</span>
+              </div>
+              <a href="/blog/3" class="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200">
+                Read More →
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="text-center mt-12">
+        <a href="/blogs" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium">
+          View All Posts
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-20 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Have a project in mind or just want to chat? I'd love to hear from you!
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="space-y-8">
+          <div>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-6">Let's Connect</h3>
+            <div class="space-y-4">
+              <div class="flex items-center space-x-4">
+                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-envelope text-blue-600"></i>
+                </div>
+                <div>
+                  <p class="font-medium text-gray-900">Email</p>
+                  <p class="text-gray-600">yourname@example.com</p>
+                </div>
+              </div>
+              <div class="flex items-center space-x-4">
+                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <i class="fab fa-linkedin text-blue-600"></i>
+                </div>
+                <div>
+                  <p class="font-medium text-gray-900">LinkedIn</p>
+                  <p class="text-gray-600">linkedin.com/in/yourname</p>
+                </div>
+              </div>
+              <div class="flex items-center space-x-4">
+                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <i class="fab fa-github text-blue-600"></i>
+                </div>
+                <div>
+                  <p class="font-medium text-gray-900">GitHub</p>
+                  <p class="text-gray-600">github.com/yourname</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <form class="space-y-6">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+              <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200" placeholder="Your Name">
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+              <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200" placeholder="your@email.com">
+            </div>
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+              <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200" placeholder="Your message..."></textarea>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">Your Name</h3>
+          <p class="text-gray-400">
+            Full-stack developer passionate about creating amazing web experiences and sharing knowledge.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="#home" class="hover:text-white transition-colors duration-200">Home</a></li>
+            <li><a href="#about" class="hover:text-white transition-colors duration-200">About</a></li>
+            <li><a href="/blogs" class="hover:text-white transition-colors duration-200">Blog</a></li>
+            <li><a href="#contact" class="hover:text-white transition-colors duration-200">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Follow Me</h4>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+              <i class="fab fa-github text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+              <i class="fab fa-linkedin text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+              <i class="fab fa-twitter text-xl"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+        <p>&copy; 2025 Your Name. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
