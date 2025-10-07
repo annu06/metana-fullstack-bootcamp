@@ -109,6 +109,17 @@ module-6/
    npm run db:seed
    ```
 
+### Database seeding (CLI)
+
+The repository includes two seeding utilities for convenience:
+
+- `scripts/seedDb.js` — the primary seeding script invoked by `npm run db:seed`.
+- `scripts/seeder.js` — a compatibility helper that replaces the old MongoDB seeder and provides simple CLI flags:
+  - `node scripts/seeder.js -i` — import sample users and tasks into the PostgreSQL database
+  - `node scripts/seeder.js -d` — delete the seeded sample data
+
+Both scripts will execute `scripts/setup-db.sql` if present to create the required tables before inserting data. Ensure your `.env` contains the PostgreSQL connection fields before running the seeder.
+
 4. **Start Development Server**:
    ```bash
    npm run dev
