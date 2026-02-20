@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - John Doe</title>
+    <link href="./css/output.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="/" class="text-2xl font-bold text-primary-600">JD</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="/" class="nav-link">Home</a>
+                        <a href="/#about" class="nav-link">About</a>
+                        <a href="/#skills" class="nav-link">Skills</a>
+                        <a href="/#projects" class="nav-link">Projects</a>
+                        <a href="/blogs" class="nav-link text-primary-600">Blog</a>
+                        <a href="/#contact" class="nav-link">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button type="button" class="mobile-menu-btn text-gray-400 hover:text-gray-500 focus:outline-none">
+                        <i class="fas fa-bars h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+                <a href="/" class="block px-3 py-2 nav-link">Home</a>
+                <a href="/#about" class="block px-3 py-2 nav-link">About</a>
+                <a href="/#skills" class="block px-3 py-2 nav-link">Skills</a>
+                <a href="/#projects" class="block px-3 py-2 nav-link">Projects</a>
+                <a href="/blogs" class="block px-3 py-2 nav-link text-primary-600">Blog</a>
+                <a href="/#contact" class="block px-3 py-2 nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="bg-gradient-to-br from-primary-50 to-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="hero-title mb-6">My Blog</h1>
+                <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                    Sharing insights about web development, programming tips, and the latest technology trends. 
+                    Join me on this journey of continuous learning and discovery.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <div class="relative">
+                        <input type="text" placeholder="Search articles..." class="w-full sm:w-80 px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+                        <i class="fas fa-search absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                    <select class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+                        <option value="">All Categories</option>
+                        <option value="web-development">Web Development</option>
+                        <option value="react">React</option>
+                        <option value="nodejs">Node.js</option>
+                        <option value="database">Database</option>
+                        <option value="devops">DevOps</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Post -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Featured Post</h2>
+                <div class="card overflow-hidden">
+                    <div class="md:flex">
+                        <div class="md:w-1/2">
+                            <div class="h-64 md:h-full bg-gradient-to-br from-purple-400 to-pink-600 flex items-center justify-center">
+                                <i class="fas fa-code text-white text-6xl"></i>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 p-8">
+                            <div class="flex items-center mb-4">
+                                <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm font-medium mr-3">Featured</span>
+                                <span class="text-gray-500 text-sm">September 15, 2025</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Building Scalable React Applications: A Complete Guide</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Learn how to structure and build large-scale React applications that can grow with your team and requirements. 
+                                This comprehensive guide covers everything from project setup to deployment strategies.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">React</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Architecture</span>
+                                <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Best Practices</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 bg-primary-500 rounded-full flex items-center justify-center mr-3">
+                                        <span class="text-white font-semibold">JD</span>
+                                    </div>
+                                    <div>
+                                        <div class="font-medium text-gray-900">John Doe</div>
+                                        <div class="text-gray-500 text-sm">8 min read</div>
+                                    </div>
+                                </div>
+                                <a href="/blog/featured" class="btn-primary">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Posts Grid -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900">Latest Articles</h2>
+                <div class="text-gray-600">
+                    <span class="font-medium">24</span> articles found
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Blog Post 1 -->
+                <article class="card overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 bg-gradient-to-br from-blue-400 to-indigo-600 flex items-center justify-center">
+                        <i class="fas fa-database text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="text-gray-500 text-sm mr-4">September 12, 2025</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs">Database</span>
+                        </div>
+                        <h3 class="font-bold text-gray-900 mb-3 text-lg hover:text-primary-600 transition-colors">
+                            <a href="/blog/1">PostgreSQL Performance Optimization Techniques</a>
+                        </h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Learn essential techniques for optimizing PostgreSQL database performance, including indexing strategies, query optimization, and configuration tuning.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-primary-500 rounded-full flex items-center justify-center mr-2">
+                                    <span class="text-white text-sm font-semibold">JD</span>
+                                </div>
+                                <span class="text-gray-500 text-sm">6 min read</span>
+                            </div>
+                            <a href="/blog/1" class="text-primary-600 hover:text-primary-700 font-medium text-sm">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="card overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center">
+                        <i class="fab fa-react text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="text-gray-500 text-sm mr-4">September 10, 2025</span>
+                            <span class="px-2 py-1 bg-green-100 text-green-800 rounded text-xs">React</span>
+                        </div>
+                        <h3 class="font-bold text-gray-900 mb-3 text-lg hover:text-primary-600 transition-colors">
+                            <a href="/blog/2">React 18 Concurrent Features Deep Dive</a>
+                        </h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Explore the new concurrent features in React 18, including Suspense improvements, automatic batching, and the new useTransition hook.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-primary-500 rounded-full flex items-center justify-center mr-2">
+                                    <span class="text-white text-sm font-semibold">JD</span>
+                                </div>
+                                <span class="text-gray-500 text-sm">10 min read</span>
+                            </div>
+                            <a href="/blog/2" class="text-primary-600 hover:text-primary-700 font-medium text-sm">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="card overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 bg-gradient-to-br from-orange-400 to-red-600 flex items-center justify-center">
+                        <i class="fas fa-cloud text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="text-gray-500 text-sm mr-4">September 8, 2025</span>
+                            <span class="px-2 py-1 bg-orange-100 text-orange-800 rounded text-xs">DevOps</span>
+                        </div>
+                        <h3 class="font-bold text-gray-900 mb-3 text-lg hover:text-primary-600 transition-colors">
+                            <a href="/blog/3">AWS Lambda with Node.js: Complete Guide</a>
+                        </h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Step-by-step guide to building and deploying serverless applications using AWS Lambda and Node.js, including best practices and monitoring.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-primary-500 rounded-full flex items-center justify-center mr-2">
+                                    <span class="text-white text-sm font-semibold">JD</span>
+                                </div>
+                                <span class="text-gray-500 text-sm">12 min read</span>
+                            </div>
+                            <a href="/blog/3" class="text-primary-600 hover:text-primary-700 font-medium text-sm">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 4 -->
+                <article class="card overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 bg-gradient-to-br from-purple-400 to-violet-600 flex items-center justify-center">
+                        <i class="fas fa-mobile-alt text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="text-gray-500 text-sm mr-4">September 5, 2025</span>
+                            <span class="px-2 py-1 bg-purple-100 text-purple-800 rounded text-xs">CSS</span>
+                        </div>
+                        <h3 class="font-bold text-gray-900 mb-3 text-lg hover:text-primary-600 transition-colors">
+                            <a href="/blog/4">Responsive Design with TailwindCSS</a>
+                        </h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Master responsive web design using TailwindCSS utility classes. Learn mobile-first design principles and advanced layout techniques.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-primary-500 rounded-full flex items-center justify-center mr-2">
+                                    <span class="text-white text-sm font-semibold">JD</span>
+                                </div>
+                                <span class="text-gray-500 text-sm">8 min read</span>
+                            </div>
+                            <a href="/blog/4" class="text-primary-600 hover:text-primary-700 font-medium text-sm">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 5 -->
+                <article class="card overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center">
+                        <i class="fas fa-chart-line text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="text-gray-500 text-sm mr-4">September 3, 2025</span>
+                            <span class="px-2 py-1 bg-cyan-100 text-cyan-800 rounded text-xs">Analytics</span>
+                        </div>
+                        <h3 class="font-bold text-gray-900 mb-3 text-lg hover:text-primary-600 transition-colors">
+                            <a href="/blog/5">Building Real-time Analytics Dashboard</a>
+                        </h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Create interactive analytics dashboards with real-time data visualization using D3.js, Socket.io, and modern web technologies.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-primary-500 rounded-full flex items-center justify-center mr-2">
+                                    <span class="text-white text-sm font-semibold">JD</span>
+                                </div>
+                                <span class="text-gray-500 text-sm">15 min read</span>
+                            </div>
+                            <a href="/blog/5" class="text-primary-600 hover:text-primary-700 font-medium text-sm">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 6 -->
+                <article class="card overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 bg-gradient-to-br from-pink-400 to-rose-600 flex items-center justify-center">
+                        <i class="fas fa-shield-alt text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="text-gray-500 text-sm mr-4">September 1, 2025</span>
+                            <span class="px-2 py-1 bg-pink-100 text-pink-800 rounded text-xs">Security</span>
+                        </div>
+                        <h3 class="font-bold text-gray-900 mb-3 text-lg hover:text-primary-600 transition-colors">
+                            <a href="/blog/6">Web Application Security Best Practices</a>
+                        </h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Essential security practices for web applications, including authentication, authorization, data validation, and protection against common vulnerabilities.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-primary-500 rounded-full flex items-center justify-center mr-2">
+                                    <span class="text-white text-sm font-semibold">JD</span>
+                                </div>
+                                <span class="text-gray-500 text-sm">11 min read</span>
+                            </div>
+                            <a href="/blog/6" class="text-primary-600 hover:text-primary-700 font-medium text-sm">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Pagination -->
+            <div class="flex justify-center mt-12">
+                <nav class="flex items-center space-x-2">
+                    <button class="px-3 py-2 text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50" disabled>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="px-4 py-2 text-white bg-primary-600 border border-primary-600 rounded-lg">1</button>
+                    <button class="px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">2</button>
+                    <button class="px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">3</button>
+                    <span class="px-4 py-2 text-gray-500">...</span>
+                    <button class="px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">8</button>
+                    <button class="px-3 py-2 text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-16 bg-primary-600">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">Stay Updated</h2>
+            <p class="text-primary-100 mb-8 text-lg">
+                Subscribe to my newsletter and get the latest articles and tutorials delivered to your inbox.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600">
+                <button class="px-6 py-3 bg-white text-primary-600 font-medium rounded-lg hover:bg-gray-100 transition-colors">
+                    Subscribe
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">John Doe</h3>
+                    <p class="text-gray-400 mb-6">
+                        Full Stack Developer passionate about creating exceptional digital experiences.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="https://linkedin.com" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="https://twitter.com" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Categories</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Web Development</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">React</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Node.js</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Database</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">DevOps</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="/#about" class="hover:text-white transition-colors">About</a></li>
+                        <li><a href="/#projects" class="hover:text-white transition-colors">Projects</a></li>
+                        <li><a href="/blogs" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="/#contact" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 John Doe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Search functionality
+        const searchInput = document.querySelector('input[placeholder="Search articles..."]');
+        searchInput.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const articles = document.querySelectorAll('article');
+            
+            articles.forEach(article => {
+                const title = article.querySelector('h3').textContent.toLowerCase();
+                const content = article.querySelector('p').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || content.includes(searchTerm)) {
+                    article.style.display = 'block';
+                } else {
+                    article.style.display = searchTerm === '' ? 'block' : 'none';
+                }
+            });
+        });
+
+        // Category filter
+        const categorySelect = document.querySelector('select');
+        categorySelect.addEventListener('change', function(e) {
+            const selectedCategory = e.target.value.toLowerCase();
+            const articles = document.querySelectorAll('article');
+            
+            articles.forEach(article => {
+                const category = article.querySelector('.px-2').textContent.toLowerCase();
+                
+                if (selectedCategory === '' || category.includes(selectedCategory)) {
+                    article.style.display = 'block';
+                } else {
+                    article.style.display = 'none';
+                }
+            });
+        });
+
+        // Newsletter subscription
+        const newsletterForm = document.querySelector('.flex.flex-col.sm\\:flex-row');
+        const emailInput = newsletterForm.querySelector('input[type="email"]');
+        const subscribeBtn = newsletterForm.querySelector('button');
+
+        subscribeBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (emailInput.value && emailInput.value.includes('@')) {
+                alert('Thank you for subscribing! You will receive updates in your inbox.');
+                emailInput.value = '';
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        });
+    </script>
+</body>
+</html>
