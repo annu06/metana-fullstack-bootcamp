@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Scalable React Applications - John Doe</title>
+    <link href="./css/output.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="/" class="text-2xl font-bold text-primary-600">JD</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="/" class="nav-link">Home</a>
+                        <a href="/#about" class="nav-link">About</a>
+                        <a href="/#skills" class="nav-link">Skills</a>
+                        <a href="/#projects" class="nav-link">Projects</a>
+                        <a href="/blogs" class="nav-link text-primary-600">Blog</a>
+                        <a href="/#contact" class="nav-link">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button type="button" class="mobile-menu-btn text-gray-400 hover:text-gray-500 focus:outline-none">
+                        <i class="fas fa-bars h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="bg-white py-4 border-b">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex items-center space-x-2 text-sm text-gray-500">
+                <a href="/" class="hover:text-primary-600">Home</a>
+                <i class="fas fa-chevron-right text-xs"></i>
+                <a href="/blogs" class="hover:text-primary-600">Blog</a>
+                <i class="fas fa-chevron-right text-xs"></i>
+                <span class="text-gray-900">Building Scalable React Applications</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Article Header -->
+    <article class="py-12 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Article Meta -->
+            <div class="mb-8">
+                <div class="flex items-center mb-4">
+                    <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm font-medium mr-4">React</span>
+                    <span class="text-gray-500 text-sm">September 15, 2025</span>
+                    <span class="mx-2 text-gray-300">•</span>
+                    <span class="text-gray-500 text-sm">12 min read</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
+                    Building Scalable React Applications: A Complete Guide
+                </h1>
+                <p class="text-xl text-gray-600 leading-relaxed">
+                    Learn how to structure and build large-scale React applications that can grow with your team and requirements. 
+                    This comprehensive guide covers everything from project setup to deployment strategies.
+                </p>
+            </div>
+
+            <!-- Author Info -->
+            <div class="flex items-center pb-8 mb-8 border-b border-gray-200">
+                <div class="w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center mr-4">
+                    <span class="text-white font-semibold text-lg">JD</span>
+                </div>
+                <div>
+                    <div class="font-semibold text-gray-900">John Doe</div>
+                    <div class="text-gray-600">Full Stack Developer & Technical Writer</div>
+                </div>
+                <div class="ml-auto flex space-x-4">
+                    <button class="flex items-center text-gray-600 hover:text-primary-600 transition-colors">
+                        <i class="far fa-heart mr-2"></i>
+                        <span>24</span>
+                    </button>
+                    <button class="flex items-center text-gray-600 hover:text-primary-600 transition-colors">
+                        <i class="fas fa-share mr-2"></i>
+                        <span>Share</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Featured Image -->
+            <div class="mb-12">
+                <div class="h-64 md:h-96 bg-gradient-to-br from-purple-400 to-pink-600 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-code text-white text-6xl"></i>
+                </div>
+            </div>
+
+            <!-- Article Content -->
+            <div class="prose prose-lg max-w-none">
+                <p class="lead">
+                    Building scalable React applications is more than just writing components. It's about creating a sustainable codebase 
+                    that can evolve with your product and team. In this comprehensive guide, we'll explore the essential patterns, 
+                    tools, and practices that make React applications maintainable at scale.
+                </p>
+
+                <h2>Table of Contents</h2>
+                <ul>
+                    <li><a href="#project-structure">Project Structure & Organization</a></li>
+                    <li><a href="#state-management">State Management Strategies</a></li>
+                    <li><a href="#component-patterns">Component Design Patterns</a></li>
+                    <li><a href="#performance">Performance Optimization</a></li>
+                    <li><a href="#testing">Testing Strategies</a></li>
+                    <li><a href="#deployment">Deployment & CI/CD</a></li>
+                </ul>
+
+                <h2 id="project-structure">Project Structure & Organization</h2>
+                <p>
+                    The foundation of any scalable React application starts with a well-organized project structure. 
+                    A good structure makes it easy for developers to find what they're looking for and understand 
+                    how different parts of the application relate to each other.
+                </p>
+
+                <h3>Feature-Based Organization</h3>
+                <p>
+                    Instead of organizing files by type (components, hooks, utils), organize them by feature. 
+                    This approach scales better as your application grows.
+                </p>
+
+                <pre><code class="language-bash">src/
+├── components/          # Shared components
+│   ├── ui/             # Basic UI components
+│   └── layout/         # Layout components
+├── features/           # Feature-specific code
+│   ├── auth/
+│   │   ├── components/
+│   │   ├── hooks/
+│   │   ├── services/
+│   │   └── types/
+│   └── dashboard/
+│       ├── components/
+│       ├── hooks/
+│       └── services/
+├── hooks/              # Shared hooks
+├── services/           # API and external services
+├── utils/              # Utility functions
+└── types/              # TypeScript type definitions</code></pre>
+
+                <h3>Barrel Exports</h3>
+                <p>
+                    Use index.ts files to create clean import paths and establish clear public APIs for your modules.
+                </p>
+
+                <pre><code class="language-typescript">// features/auth/index.ts
+export { LoginForm } from './components/LoginForm';
+export { useAuth } from './hooks/useAuth';
+export { authService } from './services/authService';
+export type { User, AuthState } from './types';</code></pre>
+
+                <h2 id="state-management">State Management Strategies</h2>
+                <p>
+                    Choosing the right state management solution is crucial for scalability. Different parts of your 
+                    application may benefit from different approaches.
+                </p>
+
+                <h3>Local State with useState and useReducer</h3>
+                <p>
+                    Start with local state for component-specific data. Use <code>useState</code> for simple state 
+                    and <code>useReducer</code> for more complex state logic.
+                </p>
+
+                <pre><code class="language-typescript">// Simple form state
+const [formData, setFormData] = useState({
+  name: '',
+  email: '',
+  message: ''
+});
+
+// Complex state with useReducer
+const [state, dispatch] = useReducer(todoReducer, {
+  todos: [],
+  filter: 'all',
+  loading: false
+});</code></pre>
+
+                <h3>Context for Shared State</h3>
+                <p>
+                    Use React Context for state that needs to be shared across multiple components, 
+                    but avoid putting everything in a single global context.
+                </p>
+
+                <pre><code class="language-typescript">// Create focused contexts
+const AuthContext = createContext();
+const ThemeContext = createContext();
+const UserPreferencesContext = createContext();
+
+// Use custom hooks to encapsulate context logic
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error('useAuth must be used within AuthProvider');
+  }
+  return context;
+};</code></pre>
+
+                <h2 id="component-patterns">Component Design Patterns</h2>
+                <p>
+                    Well-designed components are the building blocks of scalable React applications. 
+                    Here are some patterns that promote reusability and maintainability.
+                </p>
+
+                <h3>Compound Components</h3>
+                <p>
+                    This pattern allows you to create flexible, composable components that work together seamlessly.
+                </p>
+
+                <pre><code class="language-typescript">// Flexible dropdown component
+&lt;Dropdown&gt;
+  &lt;Dropdown.Trigger&gt;
+    &lt;Button&gt;Open Menu&lt;/Button&gt;
+  &lt;/Dropdown.Trigger&gt;
+  &lt;Dropdown.Menu&gt;
+    &lt;Dropdown.Item&gt;Profile&lt;/Dropdown.Item&gt;
+    &lt;Dropdown.Item&gt;Settings&lt;/Dropdown.Item&gt;
+    &lt;Dropdown.Item&gt;Logout&lt;/Dropdown.Item&gt;
+  &lt;/Dropdown.Menu&gt;
+&lt;/Dropdown&gt;</code></pre>
+
+                <h3>Custom Hooks for Logic Reuse</h3>
+                <p>
+                    Extract common logic into custom hooks to promote reusability and keep components focused on rendering.
+                </p>
+
+                <pre><code class="language-typescript">// Custom hook for API data fetching
+export const useApiData = &lt;T&gt;(url: string) =&gt; {
+  const [data, setData] = useState&lt;T | null&gt;(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState&lt;string | null&gt;(null);
+
+  useEffect(() =&gt; {
+    const fetchData = async () =&gt; {
+      try {
+        setLoading(true);
+        const response = await fetch(url);
+        const result = await response.json();
+        setData(result);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [url]);
+
+  return { data, loading, error };
+};</code></pre>
+
+                <h2 id="performance">Performance Optimization</h2>
+                <p>
+                    Performance becomes critical as your application grows. Here are key strategies to keep your React app fast.
+                </p>
+
+                <h3>Code Splitting and Lazy Loading</h3>
+                <p>
+                    Split your code by routes and features to reduce initial bundle size.
+                </p>
+
+                <pre><code class="language-typescript">// Route-based code splitting
+const Dashboard = lazy(() => import('./features/dashboard/Dashboard'));
+const Profile = lazy(() => import('./features/profile/Profile'));
+
+// Feature-based splitting
+const Chart = lazy(() => import('./components/Chart'));</code></pre>
+
+                <h3>Memoization</h3>
+                <p>
+                    Use <code>React.memo</code>, <code>useMemo</code>, and <code>useCallback</code> strategically 
+                    to prevent unnecessary re-renders.
+                </p>
+
+                <pre><code class="language-typescript">// Memoize expensive calculations
+const expensiveValue = useMemo(() =&gt; {
+  return performExpensiveCalculation(data);
+}, [data]);
+
+// Memoize callbacks to prevent child re-renders
+const handleClick = useCallback(() =&gt; {
+  onItemClick(item.id);
+}, [item.id, onItemClick]);</code></pre>
+
+                <h2 id="testing">Testing Strategies</h2>
+                <p>
+                    A comprehensive testing strategy is essential for maintaining confidence in your codebase as it grows.
+                </p>
+
+                <h3>Testing Pyramid</h3>
+                <ul>
+                    <li><strong>Unit Tests</strong>: Test individual functions and hooks</li>
+                    <li><strong>Integration Tests</strong>: Test component interactions</li>
+                    <li><strong>E2E Tests</strong>: Test complete user workflows</li>
+                </ul>
+
+                <h3>Testing Custom Hooks</h3>
+                <pre><code class="language-typescript">import { renderHook, act } from '@testing-library/react';
+import { useCounter } from './useCounter';
+
+test('should increment counter', () =&gt; {
+  const { result } = renderHook(() =&gt; useCounter());
+  
+  act(() =&gt; {
+    result.current.increment();
+  });
+  
+  expect(result.current.count).toBe(1);
+});</code></pre>
+
+                <h2 id="deployment">Deployment & CI/CD</h2>
+                <p>
+                    Automate your deployment process to ensure consistent and reliable releases.
+                </p>
+
+                <h3>Build Optimization</h3>
+                <ul>
+                    <li>Enable gzip compression</li>
+                    <li>Optimize images and assets</li>
+                    <li>Use a CDN for static assets</li>
+                    <li>Implement proper caching strategies</li>
+                </ul>
+
+                <h3>Environment Configuration</h3>
+                <pre><code class="language-bash"># .env.production
+REACT_APP_API_URL=https://api.production.com
+REACT_APP_ANALYTICS_ID=prod-analytics-id
+
+# .env.development
+REACT_APP_API_URL=http://localhost:3001
+REACT_APP_ANALYTICS_ID=dev-analytics-id</code></pre>
+
+                <h2>Conclusion</h2>
+                <p>
+                    Building scalable React applications requires thoughtful planning and consistent practices. 
+                    By focusing on proper project structure, smart state management, reusable component patterns, 
+                    performance optimization, comprehensive testing, and automated deployment, you can create 
+                    applications that grow gracefully with your needs.
+                </p>
+
+                <p>
+                    Remember, scalability isn't just about handling more users—it's about creating a codebase 
+                    that your team can work with efficiently as it evolves. Start with these foundations and 
+                    adapt them to your specific requirements.
+                </p>
+
+                <div class="bg-gray-100 p-6 rounded-lg mt-8">
+                    <h3 class="text-lg font-semibold mb-2">💡 Pro Tip</h3>
+                    <p class="mb-0">
+                        Don't over-engineer from the start. Begin with simple solutions and refactor as your 
+                        application grows. Premature optimization can lead to unnecessary complexity.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tags -->
+            <div class="mt-12 pt-8 border-t border-gray-200">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Tags</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">React</span>
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">JavaScript</span>
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">TypeScript</span>
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Architecture</span>
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Best Practices</span>
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Performance</span>
+                    <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">Testing</span>
+                </div>
+            </div>
+
+            <!-- Author Bio -->
+            <div class="mt-12 p-6 bg-gray-50 rounded-xl">
+                <div class="flex items-start">
+                    <div class="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center mr-6 flex-shrink-0">
+                        <span class="text-white font-semibold text-xl">JD</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">John Doe</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Full Stack Developer with 5+ years of experience building scalable web applications. 
+                            Passionate about React, Node.js, and sharing knowledge through writing and mentoring. 
+                            Currently working on exciting projects involving modern web technologies.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com" class="text-gray-600 hover:text-primary-600 transition-colors">
+                                <i class="fab fa-github text-lg"></i>
+                            </a>
+                            <a href="https://linkedin.com" class="text-gray-600 hover:text-primary-600 transition-colors">
+                                <i class="fab fa-linkedin text-lg"></i>
+                            </a>
+                            <a href="https://twitter.com" class="text-gray-600 hover:text-primary-600 transition-colors">
+                                <i class="fab fa-twitter text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="mt-12 pt-8 border-t border-gray-200">
+                <div class="flex flex-col sm:flex-row justify-between gap-6">
+                    <a href="/blog/prev" class="group flex items-center text-gray-600 hover:text-primary-600 transition-colors">
+                        <i class="fas fa-chevron-left mr-3 group-hover:-translate-x-1 transition-transform"></i>
+                        <div>
+                            <div class="text-sm font-medium">Previous Post</div>
+                            <div class="font-semibold">React 18 Concurrent Features</div>
+                        </div>
+                    </a>
+                    <a href="/blog/next" class="group flex items-center text-gray-600 hover:text-primary-600 transition-colors sm:text-right">
+                        <div>
+                            <div class="text-sm font-medium">Next Post</div>
+                            <div class="font-semibold">PostgreSQL Performance Tips</div>
+                        </div>
+                        <i class="fas fa-chevron-right ml-3 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Back to Blog -->
+            <div class="mt-12 text-center">
+                <a href="/blogs" class="btn-outline">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    Back to All Posts
+                </a>
+            </div>
+        </div>
+    </article>
+
+    <!-- Related Posts -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Related Articles</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Related Post 1 -->
+                <article class="card overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center">
+                        <i class="fab fa-react text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="text-gray-500 text-sm mr-4">September 10, 2025</span>
+                            <span class="px-2 py-1 bg-green-100 text-green-800 rounded text-xs">React</span>
+                        </div>
+                        <h3 class="font-bold text-gray-900 mb-3 text-lg hover:text-primary-600 transition-colors">
+                            <a href="/blog/2">React 18 Concurrent Features Deep Dive</a>
+                        </h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Explore the new concurrent features in React 18, including Suspense improvements and automatic batching.
+                        </p>
+                        <a href="/blog/2" class="text-primary-600 hover:text-primary-700 font-medium text-sm">Read More →</a>
+                    </div>
+                </article>
+
+                <!-- Related Post 2 -->
+                <article class="card overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 bg-gradient-to-br from-purple-400 to-violet-600 flex items-center justify-center">
+                        <i class="fas fa-mobile-alt text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="text-gray-500 text-sm mr-4">September 5, 2025</span>
+                            <span class="px-2 py-1 bg-purple-100 text-purple-800 rounded text-xs">CSS</span>
+                        </div>
+                        <h3 class="font-bold text-gray-900 mb-3 text-lg hover:text-primary-600 transition-colors">
+                            <a href="/blog/4">Responsive Design with TailwindCSS</a>
+                        </h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Master responsive web design using TailwindCSS utility classes and mobile-first principles.
+                        </p>
+                        <a href="/blog/4" class="text-primary-600 hover:text-primary-700 font-medium text-sm">Read More →</a>
+                    </div>
+                </article>
+
+                <!-- Related Post 3 -->
+                <article class="card overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center">
+                        <i class="fas fa-chart-line text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="text-gray-500 text-sm mr-4">September 3, 2025</span>
+                            <span class="px-2 py-1 bg-cyan-100 text-cyan-800 rounded text-xs">Analytics</span>
+                        </div>
+                        <h3 class="font-bold text-gray-900 mb-3 text-lg hover:text-primary-600 transition-colors">
+                            <a href="/blog/5">Building Real-time Analytics Dashboard</a>
+                        </h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                            Create interactive analytics dashboards with real-time data visualization using modern tools.
+                        </p>
+                        <a href="/blog/5" class="text-primary-600 hover:text-primary-700 font-medium text-sm">Read More →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">John Doe</h3>
+                    <p class="text-gray-400 mb-6">
+                        Full Stack Developer passionate about creating exceptional digital experiences.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="https://linkedin.com" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="https://twitter.com" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Categories</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Web Development</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">React</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Node.js</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Database</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">DevOps</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="/#about" class="hover:text-white transition-colors">About</a></li>
+                        <li><a href="/#projects" class="hover:text-white transition-colors">Projects</a></li>
+                        <li><a href="/blogs" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="/#contact" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 John Doe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Share functionality
+        const shareBtn = document.querySelector('.fa-share').parentElement;
+        shareBtn.addEventListener('click', async () => {
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: document.title,
+                        url: window.location.href
+                    });
+                } catch (err) {
+                    console.log('Error sharing:', err);
+                }
+            } else {
+                // Fallback: copy to clipboard
+                navigator.clipboard.writeText(window.location.href);
+                alert('Link copied to clipboard!');
+            }
+        });
+
+        // Like functionality
+        const likeBtn = document.querySelector('.fa-heart').parentElement;
+        let isLiked = false;
+        let likeCount = 24;
+
+        likeBtn.addEventListener('click', () => {
+            isLiked = !isLiked;
+            const icon = likeBtn.querySelector('i');
+            const count = likeBtn.querySelector('span');
+            
+            if (isLiked) {
+                icon.classList.remove('far');
+                icon.classList.add('fas');
+                likeBtn.classList.add('text-red-500');
+                likeCount++;
+            } else {
+                icon.classList.remove('fas');
+                icon.classList.add('far');
+                likeBtn.classList.remove('text-red-500');
+                likeCount--;
+            }
+            
+            count.textContent = likeCount;
+        });
+    </script>
+</body>
+</html>
