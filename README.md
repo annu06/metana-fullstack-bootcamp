@@ -1,267 +1,269 @@
-# Module 8: React Frontend Integration
+# Module 6: PostgreSQL Database Integration
 
-## Assignment Overview
+This project demonstrates a complete Node.js backend application with PostgreSQL database integration, featuring relational data models and advanced SQL queries.
 
-This project implements the frontend of a personal portfolio application using React, integrating with backend APIs and implementing UI/UX designs. Built as part of the Metana Full-Stack Bootcamp Module 8 assignment.
-
-## Assignment Objectives Completed
-
-✅ Built React frontend implementing UI/UX designs from Module 7  
-✅ Integrated React components with backend API for dynamic data  
-✅ Implemented state management for data flow between components  
-✅ Set up React Router for navigation between different views  
-✅ Connected frontend to Node.js backend from Module 6
-
-## Folder Structure
+## 🏗️ Project Structure
 
 ```
-client/
-├── public/
-│   └── index.html
-├── src/
-│   ├── api/
-│   │   └── blogs.js
-│   ├── components/
-│   │   ├── Footer.jsx
-│   │   ├── Header.jsx
-│   │   ├── Layout.jsx
-│   │   └── Navigation.jsx
-│   ├── pages/
-│   │   ├── About.jsx
-│   │   ├── Blogs.jsx
-│   │   ├── Contact.jsx
-│   │   ├── Home.jsx
-│   │   ├── Projects.jsx
-│   │   ├── SingleBlog.jsx
-│   │   ├── NotFound.jsx
-│   │   └── AdminDashboard.jsx
-│   ├── App.css
-│   ├── App.js
-│   ├── App.test.js
-│   ├── index.css
-│   ├── index.js
-│   ├── logo.svg
-│   ├── reportWebVitals.js
-│   ├── setupProxy.js
-│   └── setupTests.js
-├── .gitignore
-├── README.md
-├── package.json
-├── package-lock.json
-└── tailwind.config.js
-
-server/
+module-6/
 ├── db/
-│   ├── blogQueries.js
-│   ├── dbconn.js
-│   └── userQueries.js
+│   ├── blogQueries.js   # Blog CRUD operations with PostgreSQL
+│   ├── dbconn.js        # PostgreSQL connection setup
+│   └── userQueries.js   # User CRUD operations with PostgreSQL
 ├── routes/
-│   ├── blogsRouter.js
-│   └── userRouter.js
+│   ├── blogsRouter.js   # Blog API endpoints
+│   └── userRouter.js    # User API endpoints
 ├── scripts/
-│   ├── initDb.js
-│   ├── seedDb.js
-│   └── setup-db.sql
+│   ├── initDb.js        # Database initialization script
+│   ├── seedDb.js        # Sample data seeding script
+│   └── setup-db.sql     # SQL schema definition
 ├── .gitignore
-├── config.js
-├── example.env
-├── index.js
-├── package.json
-└── package-lock.json
+├── config.js            # Environment configuration
+├── example.env          # Environment variables template
+├── index.js             # Main application entry point
+├── package.json         # Node.js dependencies and scripts
+└── README.md            # Project documentation
 ```
 
-## React Components and Pages
+## 🚀 Features
 
-### Pages (with exact routes as specified)
+### Database Schema
 
-- **Homepage** (`/`) - Implements all sections from Module 7 design
-- **Blogs** (`/blogs`) - Displays all blog posts with API integration
-- **Projects** (`/projects`) - Showcases portfolio projects
-- **About** (`/about`) - Personal background and experience
-- **Contact** (`/contact`) - Contact form and details
-- **Single Blog** (`/blogs/:id`) - Individual blog post view
-- **Admin Dashboard** (`/admin-dash`) - Blog management interface
-- **Not Found** (`*`) - 404 page for unknown routes
-
-### Components
-
-- **Navigation.jsx** - Main navigation bar with links to all pages
-- **Header.jsx** - Page header with logo and title
-- **Footer.jsx** - Site footer with copyright and links
-- **Layout.jsx** - Wrapper component ensuring consistent structure
-
-## Backend Integration
-
-### API Functions (`src/api/blogs.js`)
-
-- `getAllBlogs()` - Fetches all blog posts from `/api/blogs`
-- `getBlogById(id)` - Fetches specific blog post from `/api/blogs/:id`
-
-### Proxy Configuration
-
-- **setupProxy.js** - Uses `http-proxy-middleware` to forward API calls
-- All `/api` requests proxied to `http://localhost:3000`
-- Package.json includes proxy configuration
-
-## Technologies Used
-
-### Frontend
-
-- React 19.2.0 (created with create-react-app)
-- React Router DOM for navigation
-- Axios for API requests
-- TailwindCSS for styling
-- HTTP Proxy Middleware for API forwarding
-
-### Backend
-
-- Node.js with Express.js
-- Modular route structure (blogsRouter, userRouter)
-- Database abstraction layer (ready for Module 6 integration)
-- Production build serving capability
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js (v16 or higher)
-- npm package manager
-
-### Installation
-
-1. Navigate to the module-8 directory
-2. Install client dependencies:
-   ```bash
-   cd client
-   npm install
-   ```
-3. Install server dependencies:
-   ```bash
-   cd ../server
-   npm install
-   ```
-
-### Development Setup
-
-#### Running with Concurrently (Recommended)
-
-The frontend includes a `dev` script that runs both client and server simultaneously:
-
-```bash
-cd client
-npm run dev
-```
-
-This will start:
-
-- Backend server on `http://localhost:3000`
-- Frontend development server on `http://localhost:3001`
-
-#### Running Separately
-
-**Start the backend:**
-
-```bash
-cd server
-npm start
-```
-
-**Start the frontend (in another terminal):**
-
-```bash
-cd client
-npm start
-```
-
-### Production Build
-
-#### Frontend Build
-
-```bash
-cd client
-npm run build
-```
-
-#### Production Deployment
-
-The backend includes scripts for production:
-
-```bash
-cd server
-npm run prod
-```
-
-This will:
-
-1. Build the frontend (`npm run build:frontend`)
-2. Set NODE_ENV to production
-3. Serve the React build files through Express
-
-## API Integration
-
-### Proxy Configuration
-
-- `setupProxy.js` forwards all `/api` requests to backend
-- Frontend package.json includes proxy: `"http://localhost:3000"`
-- Uses `http-proxy-middleware` for development
+- **Users Table**: Stores user information with auto-incrementing IDs
+- **Blogs Table**: Stores blog posts with foreign key relationships to users
+- **Relational Integrity**: Foreign key constraints with CASCADE delete
+- **Automatic Timestamps**: Created/updated timestamps with triggers
+- **Performance Indexes**: Optimized queries with strategic indexing
 
 ### API Endpoints
 
-- `GET /api/blogs` - Retrieve all blog posts
-- `GET /api/blogs/:id` - Retrieve specific blog post
-- `POST /api/blogs` - Create new blog post
-- `GET /api/health` - Server health check
+#### Users API (`/api/users`)
 
-## State Management
+- `GET /api/users` - Get all users
+- `GET /api/users/:id` - Get user by ID
+- `GET /api/users/:id/stats` - Get user with blog count
+- `POST /api/users` - Create new user
+- `PUT /api/users/:id` - Update user details
+- `PATCH /api/users/:id/password` - Update user password
+- `DELETE /api/users/:id` - Delete user
 
-- React's built-in useState and useEffect hooks
-- Axios for HTTP requests and data fetching
-- Component-level state management
-- Props for data flow between components
+#### Blogs API (`/api/blogs`)
 
-## Routing Implementation
+- `GET /api/blogs` - Get all blogs with author info
+- `GET /api/blogs/:id` - Get blog by ID
+- `GET /api/blogs/stats` - Get blog statistics
+- `GET /api/blogs/search?q=term` - Search blogs by title/content
+- `GET /api/blogs/author/:authorId` - Get blogs by specific author
+- `POST /api/blogs` - Create new blog
+- `PUT /api/blogs/:id` - Update blog
+- `DELETE /api/blogs/:id` - Delete blog
 
-React Router DOM setup with exact routes:
+### Advanced Features
 
-- `/` → Home page
-- `/blogs` → Blog listing
-- `/projects` → Projects showcase
-- `/about` → About page
-- `/contact` → Contact form
-- `/blogs/:id` → Individual blog view
-- `/admin-dash` → Admin dashboard
-- `*` → 404 Not Found
+- **Password Hashing**: Secure bcrypt password encryption
+- **Connection Pooling**: Efficient PostgreSQL connection management
+- **Error Handling**: Comprehensive error responses
+- **Data Validation**: Input validation and sanitization
+- **JOIN Queries**: Relational data fetching with SQL JOINs
+- **Search Functionality**: Full-text search across blog content
+- **Statistics**: Aggregated data queries for insights
 
-## Module 6 Integration Notes
+## 🛠️ Setup Instructions
 
-This frontend is designed to integrate with the backend developed in Module 6:
+### Prerequisites
 
-- Database queries abstracted in `/server/db/` folder
-- Router modules ready for database connection
-- Configuration setup for environment variables
-- Placeholder structure matching Module 6 specifications
+- Node.js (v14 or higher)
+- PostgreSQL (v12 or higher)
+- npm or yarn package manager
 
-## Assignment Deliverables Completed
+### 1. Database Setup
 
-✅ React app with all components integrated with backend  
-✅ Complete folder structure following specifications  
-✅ Fully functional pages with proper routing  
-✅ GitHub repository with detailed documentation  
-✅ Concurrently setup for development workflow  
-✅ Production build configuration  
-✅ API integration with Axios  
-✅ Proxy middleware configuration
+1. **Install PostgreSQL** locally and start the service
+2. **Create Database**:
+   ```bash
+   createdb module6_db
+   ```
+3. **Configure Environment**:
+   ```bash
+   cp example.env .env
+   # Edit .env with your PostgreSQL credentials
+   ```
 
-## Development Notes
+### 2. Application Setup
 
-- TailwindCSS configured for styling consistency
-- Error handling implemented for API failures
-- Responsive design for mobile compatibility
-- Modular component architecture for maintainability
+1. **Install Dependencies**:
 
-## Submission Information
+   ```bash
+   npm install
+   ```
 
-- **Repository**: metana-fullstack-bootcamp/module-8
-- **Branch**: main
-- **Completed**: October 2025
-- **Assignment**: Module 8 - React Frontend Integration
+2. **Initialize Database**:
+
+   ```bash
+   npm run db:init
+   ```
+
+3. **Seed Sample Data**:
+
+   ```bash
+   npm run db:seed
+   ```
+
+### Database seeding (CLI)
+
+The repository includes two seeding utilities for convenience:
+
+- `scripts/seedDb.js` — the primary seeding script invoked by `npm run db:seed`.
+- `scripts/seeder.js` — a compatibility helper that replaces the old MongoDB seeder and provides simple CLI flags:
+  - `node scripts/seeder.js -i` — import sample users and tasks into the PostgreSQL database
+  - `node scripts/seeder.js -d` — delete the seeded sample data
+
+Both scripts will execute `scripts/setup-db.sql` if present to create the required tables before inserting data. Ensure your `.env` contains the PostgreSQL connection fields before running the seeder.
+
+4. **Start Development Server**:
+   ```bash
+   npm run dev
+   ```
+
+## 🔧 Environment Variables
+
+Create a `.env` file based on `example.env`:
+
+```env
+# PostgreSQL Database Configuration
+DB_USER=postgres
+DB_HOST=localhost
+DB_NAME=module6_db
+DB_PASSWORD=your_postgres_password
+DB_PORT=5432
+
+# Server Configuration
+PORT=3000
+NODE_ENV=development
+```
+
+## 📝 API Usage Examples
+
+### Create User
+
+```bash
+curl -X POST http://localhost:3000/api/users \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "John Doe",
+    "email": "john@example.com",
+    "password": "securepassword"
+  }'
+```
+
+### Create Blog
+
+```bash
+curl -X POST http://localhost:3000/api/blogs \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "My First Blog",
+    "content": "This is my first blog post content.",
+    "author_id": 1
+  }'
+```
+
+### Search Blogs
+
+```bash
+curl "http://localhost:3000/api/blogs/search?q=PostgreSQL"
+```
+
+## 🗄️ Database Schema
+
+### Users Table
+
+```sql
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    last_login TIMESTAMP
+);
+```
+
+### Blogs Table
+
+```sql
+CREATE TABLE blogs (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL,
+    author_id INTEGER NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE CASCADE
+);
+```
+
+## 🔍 Key PostgreSQL Features Used
+
+1. **Serial Primary Keys**: Auto-incrementing unique identifiers
+2. **Foreign Key Constraints**: Maintaining referential integrity
+3. **CASCADE Delete**: Automatic cleanup of related records
+4. **Indexes**: Performance optimization for frequent queries
+5. **Triggers**: Automatic timestamp updates
+6. **JOIN Queries**: Relational data retrieval
+7. **Aggregate Functions**: COUNT, AVG for statistics
+8. **Full-text Search**: ILIKE for case-insensitive search
+9. **Connection Pooling**: Efficient connection management
+10. **Parameterized Queries**: SQL injection prevention
+
+## 🚀 Scripts
+
+- `npm start` - Start production server
+- `npm run dev` - Start development server with nodemon
+- `npm run db:init` - Initialize database tables
+- `npm run db:seed` - Seed sample data
+
+## 🔒 Security Features
+
+- **Password Hashing**: bcrypt with salt rounds
+- **SQL Injection Prevention**: Parameterized queries
+- **Input Validation**: Data type and format validation
+- **Error Handling**: Secure error messages without data leakage
+- **Connection Security**: Environment-based credentials
+
+## 📊 Performance Optimizations
+
+- **Connection Pooling**: Reusable database connections
+- **Strategic Indexes**: Fast query execution
+- **Efficient Queries**: Optimized SQL with JOINs
+- **Connection Timeout**: Automatic cleanup of idle connections
+
+## 🔗 Frontend Integration Ready
+
+This backend is designed to integrate seamlessly with React frontends in Module 8:
+
+- Standardized JSON responses
+- RESTful API design
+- CORS enabled
+- Consistent error handling
+- Comprehensive endpoint documentation
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+---
+
+**Module 6 Assignment**: ✅ Complete PostgreSQL Integration
+
+- ✅ PostgreSQL database schema and setup
+- ✅ Relational data models with foreign keys
+- ✅ CRUD operations with SQL queries
+- ✅ JOIN queries for related data
+- ✅ Advanced features (search, statistics, validation)
+- ✅ Production-ready backend API
