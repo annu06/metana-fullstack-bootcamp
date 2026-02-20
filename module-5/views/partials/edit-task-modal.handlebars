@@ -1,0 +1,22 @@
+<div class="modal" id="edit-task-modal">
+    <div class="modal-content">
+        <span class="close-button" id="edit-modal-close">&times;</span>
+        <h2>Edit Task</h2>
+        <form id="edit-task-form">
+            <div class="form-group">
+                <label for="edit-task-title">Title</label>
+                <input type="text" id="edit-task-title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="edit-task-duration">Duration</label>
+                <input type="text" id="edit-task-duration" name="duration" placeholder="30 mins">
+            </div>
+            <div class="form-group">
+                <label for="edit-task-time">Time</label>
+                <input type="text" id="edit-task-time" name="time" placeholder="12:00 PM">
+            </div>
+            <input type="hidden" id="edit-task-id" name="id">
+            <button type="submit" class="submit-button">Update Task</button>
+        </form>
+    </div>
+</div>

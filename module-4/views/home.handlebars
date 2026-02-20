@@ -1,0 +1,54 @@
+<div class="task-container">
+    <div class="task-list-container">
+        <div class="task-header">
+            <h2>Ready for Today?</h2>
+            <div class="task-header-actions">
+                <button class="add-task-button" id="add-task-button">+ Add Task</button>
+                <button class="complete-all-button" id="complete-all-button">Complete All</button>
+                <button class="show-completed-button" id="show-completed-button">Show Completed</button>
+            </div>
+        </div>
+        
+        <div class="task-count">You have {{tasks.length}} tasks planned for today</div>
+        
+        <div class="task-list" id="task-list">
+            {{#each tasks}}
+                {{> task-item completed=false}}
+            {{/each}}
+        </div>
+    </div>
+    
+    <div class="completed-tasks-container" id="completed-tasks-container" style="display: none;">
+        <div class="completed-header">
+            <h2>Completed Tasks</h2>
+        </div>
+        <div class="completed-task-list" id="completed-task-list">
+            {{#each completedTasks}}
+                {{> task-item completed=true}}
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+<div class="suggested-tasks-container" id="suggested-tasks-container">
+    <div class="task-header">
+        <h2>Suggested tasks</h2>
+        <div class="suggestion-indicators">
+            <div class="weather-indicator" id="weather-indicator">
+                <i class="fas fa-cloud-sun"></i>
+            </div>
+            <div class="mood-indicator" id="mood-indicator">
+                <i class="fas fa-smile"></i>
+            </div>
+        </div>
+    </div>
+    
+    <div class="suggested-task-list" id="suggested-task-list">
+        <!-- Suggested tasks will be populated dynamically based on weather and mood -->
+    </div>
+</div>
+
+{{> add-task-modal}}
+{{> edit-task-modal}}
+{{> weather-modal}}
+{{> mood-modal}}
