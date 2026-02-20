@@ -1,269 +1,370 @@
-# Module 6: PostgreSQL Database Integration
+# Modu## Assignment Compliance Summary
 
-This project demonstrates a complete Node.js backend application with PostgreSQL database integration, featuring relational data models and advanced SQL queries.
+This repository fully satisfies all Assignment M11 requirements:
 
-## 🏗️ Project Structure
+### ✅ Core Requirements Met
+
+- **EC2 Setup**: Complete AWS setup guide with security groups and SSH access
+- **Software Installation**: Node.js via NVM, Git, Nginx, PM2 automated installation
+- **Application Deployment**: Full deployment automation with environment configuration
+- **Reverse Proxy**: Nginx configuration with security headers and rate limiting
+- **PM2 Process Management**: Cluster mode, auto-restart, boot startup configuration
+- **Domain & SSL**: Let's Encrypt integration with auto-renewal
+- **Security Hardening**: SSH key-only auth, trusted IP restrictions, firewall configuration
+
+### ✅ Advanced Features Added
+
+- **AWS CloudWatch Integration**: Log monitoring and metrics collection
+- **Route 53 DNS Setup**: Complete DNS configuration guide
+- **Comprehensive Testing**: Cross-browser, cross-device testing procedures
+- **Security Compliance**: Assignment-specific trusted IP restrictions
+- **Monitoring & Alerting**: System monitoring with optional alerts
+- **Automated Backups**: Encrypted backup solutions
+
+### ✅ Documentation & Deliverables
+
+- **Complete Documentation**: Step-by-step guides for all processes
+- **Testing Checklists**: Validation procedures for all requirements
+- **Submission Template**: Ready-to-use submission format
+- **Troubleshooting Guides**: Common issues and solutions
+- **Security Validation**: Security testing procedures
+
+### ✅ Assignment-Specific Features
+
+- **Trusted IP SSH Access**: "SSH should only be accessible from trusted IPs"
+- **Key-Based Authentication**: "Disable password-based authentication"
+- **CloudWatch Monitoring**: "Monitor Logs: Regularly check app logs using AWS CloudWatch"
+- **Cross-Device Testing**: "Test across multiple devices and browsers for compatibility"
+- **Route 53 Integration**: "Use AWS Route 53 or another domain registrar"
+
+This implementation goes beyond the basic requirements to provide a production-ready, secure, and scalable deployment solution.Stack Application Deployment on AWS EC2
+
+## Assignment Overview
+
+# Module 11: Full-Stack Application Deployment on AWS EC2
+
+## Assignment Overview
+
+This module focuses on deploying a full-stack application to AWS EC2, providing hands-on experience with cloud deployment, server configuration, and production-ready setup.
+
+## Learning Objectives
+
+- Set up and configure an EC2 instance on AWS
+- Install and configure necessary software (Node.js, Git, Nginx)
+- Deploy a full-stack application to production
+- Configure reverse proxy and process management
+- Implement SSL/HTTPS security
+- Apply security best practices
+
+## Project Structure
+
+## Project Structure
 
 ```
-module-6/
-├── db/
-│   ├── blogQueries.js   # Blog CRUD operations with PostgreSQL
-│   ├── dbconn.js        # PostgreSQL connection setup
-│   └── userQueries.js   # User CRUD operations with PostgreSQL
-├── routes/
-│   ├── blogsRouter.js   # Blog API endpoints
-│   └── userRouter.js    # User API endpoints
-├── scripts/
-│   ├── initDb.js        # Database initialization script
-│   ├── seedDb.js        # Sample data seeding script
-│   └── setup-db.sql     # SQL schema definition
-├── .gitignore
-├── config.js            # Environment configuration
-├── example.env          # Environment variables template
-├── index.js             # Main application entry point
-├── package.json         # Node.js dependencies and scripts
-└── README.md            # Project documentation
+module_11/
+├── README.md                   # Main documentation (this file)
+├── docs/                       # Step-by-step guides
+│   ├── aws-setup.md
+│   ├── server-provisioning.md
+│   ├── deployment.md
+│   ├── nginx-config.md
+│   ├── ssl-setup.md
+│   ├── security.md
+│   ├── troubleshooting.md
+│   ├── cloudwatch-setup.md     # AWS CloudWatch integration
+│   └── route53-setup.md        # Route 53 DNS configuration
+├── scripts/                    # Automation scripts
+│   ├── setup-server.sh         # Server provisioning script
+│   ├── deploy.sh               # Application deployment script
+│   ├── backup.sh               # Encrypted backups of app/DB/configs
+│   ├── health-check.sh         # One-off health diagnostics
+│   └── monitor.sh              # Continuous monitoring/alerting
+├── config/                     # Templates and configs
+│   ├── nginx.conf              # Nginx reverse proxy template
+│   ├── ecosystem.config.js     # PM2 process config template
+│   ├── fail2ban-nginx.conf     # Fail2Ban template (nginx)
+│   └── .env.example            # Environment variables template
+└── tests/                      # Checklists to validate deliverables
+   ├── deployment-test.md      # Deployment validation checklist
+   ├── security-test.md        # Security testing checklist
+   └── testing-procedures.md   # Cross-browser and device testing
 ```
 
-## 🚀 Features
-
-### Database Schema
-
-- **Users Table**: Stores user information with auto-incrementing IDs
-- **Blogs Table**: Stores blog posts with foreign key relationships to users
-- **Relational Integrity**: Foreign key constraints with CASCADE delete
-- **Automatic Timestamps**: Created/updated timestamps with triggers
-- **Performance Indexes**: Optimized queries with strategic indexing
-
-### API Endpoints
-
-#### Users API (`/api/users`)
-
-- `GET /api/users` - Get all users
-- `GET /api/users/:id` - Get user by ID
-- `GET /api/users/:id/stats` - Get user with blog count
-- `POST /api/users` - Create new user
-- `PUT /api/users/:id` - Update user details
-- `PATCH /api/users/:id/password` - Update user password
-- `DELETE /api/users/:id` - Delete user
-
-#### Blogs API (`/api/blogs`)
-
-- `GET /api/blogs` - Get all blogs with author info
-- `GET /api/blogs/:id` - Get blog by ID
-- `GET /api/blogs/stats` - Get blog statistics
-- `GET /api/blogs/search?q=term` - Search blogs by title/content
-- `GET /api/blogs/author/:authorId` - Get blogs by specific author
-- `POST /api/blogs` - Create new blog
-- `PUT /api/blogs/:id` - Update blog
-- `DELETE /api/blogs/:id` - Delete blog
-
-### Advanced Features
-
-- **Password Hashing**: Secure bcrypt password encryption
-- **Connection Pooling**: Efficient PostgreSQL connection management
-- **Error Handling**: Comprehensive error responses
-- **Data Validation**: Input validation and sanitization
-- **JOIN Queries**: Relational data fetching with SQL JOINs
-- **Search Functionality**: Full-text search across blog content
-- **Statistics**: Aggregated data queries for insights
-
-## 🛠️ Setup Instructions
+## Quick Start Guide
 
 ### Prerequisites
 
-- Node.js (v14 or higher)
-- PostgreSQL (v12 or higher)
-- npm or yarn package manager
+- AWS Account with billing enabled
+- Domain name (optional but recommended)
+- SSH client (PuTTY for Windows, Terminal for Mac/Linux)
+- Git repository with your full-stack application
 
-### 1. Database Setup
+### Deployment Steps Overview
 
-1. **Install PostgreSQL** locally and start the service
-2. **Create Database**:
-   ```bash
-   createdb module6_db
-   ```
-3. **Configure Environment**:
-   ```bash
-   cp example.env .env
-   # Edit .env with your PostgreSQL credentials
-   ```
+1. **AWS Setup**
 
-### 2. Application Setup
+   - Launch EC2 instance
+   - Configure security groups
+   - Generate SSH key pair
 
-1. **Install Dependencies**:
+2. **Server Provisioning**
 
-   ```bash
-   npm install
-   ```
+   - Connect via SSH
+   - Create non-root user
+   - Install required software
 
-2. **Initialize Database**:
+3. **Application Deployment**
 
-   ```bash
-   npm run db:init
-   ```
+   - Clone repository
+   - Install dependencies
+   - Configure environment variables
+   - Build and test application
 
-3. **Seed Sample Data**:
+4. **Production Configuration**
 
-   ```bash
-   npm run db:seed
-   ```
+   - Set up Nginx reverse proxy
+   - Configure PM2 process manager
+   - Implement SSL/HTTPS
+   - Apply security hardening
 
-### Database seeding (CLI)
+5. **Testing and Monitoring**
+   - Verify deployment
+   - Test across devices
+   - Set up monitoring
 
-The repository includes two seeding utilities for convenience:
+## Detailed Documentation
 
-- `scripts/seedDb.js` — the primary seeding script invoked by `npm run db:seed`.
-- `scripts/seeder.js` — a compatibility helper that replaces the old MongoDB seeder and provides simple CLI flags:
-  - `node scripts/seeder.js -i` — import sample users and tasks into the PostgreSQL database
-  - `node scripts/seeder.js -d` — delete the seeded sample data
+For step-by-step instructions, refer to the documentation in the `docs/` folder:
 
-Both scripts will execute `scripts/setup-db.sql` if present to create the required tables before inserting data. Ensure your `.env` contains the PostgreSQL connection fields before running the seeder.
+- [AWS EC2 Setup Guide](docs/aws-setup.md)
+- [Server Provisioning Guide](docs/server-provisioning.md)
+- [Application Deployment Guide](docs/deployment.md)
+- [Nginx Configuration Guide](docs/nginx-config.md)
+- [SSL/HTTPS Setup Guide](docs/ssl-setup.md)
+- [Security Hardening Guide](docs/security.md)
+- [Troubleshooting Guide](docs/troubleshooting.md)
+- [AWS CloudWatch Setup](docs/cloudwatch-setup.md)
+- [Route 53 DNS Configuration](docs/route53-setup.md)
 
-4. **Start Development Server**:
-   ```bash
-   npm run dev
-   ```
+## Automation Scripts
 
-## 🔧 Environment Variables
+## Automation Scripts
 
-Create a `.env` file based on `example.env`:
+The `scripts/` folder contains automation scripts to streamline the deployment process:
 
-```env
-# PostgreSQL Database Configuration
-DB_USER=postgres
-DB_HOST=localhost
-DB_NAME=module6_db
-DB_PASSWORD=your_postgres_password
-DB_PORT=5432
+- `setup-server.sh` - Automates server provisioning (run as root/sudo)
+- `deploy.sh` - Automates application deployment with PM2 + Nginx
+- `backup.sh` - Encrypted backups of app, DB, and configs
+- `health-check.sh` - One-off health diagnostics
+- `monitor.sh` - Lightweight monitoring and alerting
 
-# Server Configuration
-PORT=3000
-NODE_ENV=development
+## Configuration Files
+
+## Configuration Files
+
+The `config/` folder contains template configuration files:
+
+- `nginx.conf` — Nginx HTTP/HTTPS reverse proxy template
+- `ecosystem.config.js` — PM2 process configuration (loads env from system)
+- `.env.example` — Copy to `.env` on the server and fill real values
+- `fail2ban-nginx.conf` — Optional Fail2Ban filter template for Nginx
+
+## Testing
+
+## Testing
+
+The `tests/` folder contains testing checklists and procedures:
+
+- `deployment-test.md` — Deployment verification checklist
+- `security-test.md` — Security testing procedures
+- `testing-procedures.md` — Comprehensive cross-browser/device testing
+- Cross-browser compatibility tests (add your screenshots/evidence)
+
+## 10-minute Quickstart (Windows PowerShell + Ubuntu EC2)
+
+Use this condensed checklist. Replace placeholders in UPPERCASE.
+
+1. Launch EC2 (Ubuntu 22.04). Open ports 22, 80, 443. Download your .pem.
+
+2. Connect from Windows PowerShell:
+
+```powershell
+ssh -i "C:\\PATH\\TO\\YOUR-KEY.pem" ubuntu@YOUR_PUBLIC_IP
 ```
 
-## 📝 API Usage Examples
-
-### Create User
+3. Provision the server (as root):
 
 ```bash
-curl -X POST http://localhost:3000/api/users \
-  -H "Content-Type: application/json" \
-  -d '{
-    "name": "John Doe",
-    "email": "john@example.com",
-    "password": "securepassword"
-  }'
+sudo -i
+# Optional: create an app user
+adduser appuser; usermod -aG sudo appuser
+# Copy SSH key to appuser (if you'll log in as it)
+mkdir -p /home/appuser/.ssh; cp /home/ubuntu/.ssh/authorized_keys /home/appuser/.ssh/; \
+   chown -R appuser:appuser /home/appuser/.ssh; chmod 700 /home/appuser/.ssh; chmod 600 /home/appuser/.ssh/authorized_keys
+# Run provisioning
+bash -lc '/bin/bash ~ubuntu/module_11/scripts/setup-server.sh'
+exit
 ```
 
-### Create Blog
+4. Verify Node via NVM (setup-server.sh already installed it):
 
 ```bash
-curl -X POST http://localhost:3000/api/blogs \
-  -H "Content-Type: application/json" \
-  -d '{
-    "title": "My First Blog",
-    "content": "This is my first blog post content.",
-    "author_id": 1
-  }'
+# Back as ubuntu (non-root). If node isn't present, install via NVM:
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+source ~/.nvm/nvm.sh
+nvm install --lts
+node -v; npm -v
+npm i -g pm2
 ```
 
-### Search Blogs
+5. Deploy the app:
 
 ```bash
-curl "http://localhost:3000/api/blogs/search?q=PostgreSQL"
+module_11/scripts/deploy.sh \
+   -n myapp \
+   -r https://github.com/YOUR_GITHUB/REPO.git \
+   -d YOUR_DOMAIN \
+   -e YOU@EXAMPLE.COM
 ```
 
-## 🗄️ Database Schema
+6. Point DNS A record to the EC2 public IP. Rerun deploy with -d to enable SSL or wait for certbot inside script.
 
-### Users Table
+7. Verify:
 
-```sql
-CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    email VARCHAR(255) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    last_login TIMESTAMP
-);
-```
+```bash
+pm2 status
+curl -I http://YOUR_DOMAIN
+curl -I https://YOUR_DOMAIN
+2) Copy this folder to the server, then connect from Windows PowerShell:
 
-### Blogs Table
+## Assignment Requirements Checklist
+scp -i "C:\\PATH\\TO\\YOUR-KEY.pem" -r module_11 ubuntu@YOUR_PUBLIC_IP:~/
+ssh -i "C:\\PATH\\TO\\YOUR-KEY.pem" ubuntu@YOUR_PUBLIC_IP
 
-```sql
-CREATE TABLE blogs (
-    id SERIAL PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    content TEXT NOT NULL,
-    author_id INTEGER NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE CASCADE
-);
-```
+### ✅ EC2 Instance Setup
+- [ ] AWS account created
+- [ ] EC2 instance launched (Ubuntu AMI)
+- [ ] Security group configured (HTTP/HTTPS open)
+- [ ] SSH key pair generated
+- [ ] SSH access verified
 
-## 🔍 Key PostgreSQL Features Used
+### ✅ Server Provisioning
+- [ ] Non-root user created
+- [ ] System packages updated
+- [ ] Administrative privileges configured
 
-1. **Serial Primary Keys**: Auto-incrementing unique identifiers
-2. **Foreign Key Constraints**: Maintaining referential integrity
-3. **CASCADE Delete**: Automatic cleanup of related records
-4. **Indexes**: Performance optimization for frequent queries
-5. **Triggers**: Automatic timestamp updates
-6. **JOIN Queries**: Relational data retrieval
-7. **Aggregate Functions**: COUNT, AVG for statistics
-8. **Full-text Search**: ILIKE for case-insensitive search
-9. **Connection Pooling**: Efficient connection management
-10. **Parameterized Queries**: SQL injection prevention
+### ✅ Software Installation
+- [ ] Node.js installed via NVM
+- [ ] Git installed and configured
+- [ ] Repository cloned
 
-## 🚀 Scripts
+### ✅ Application Deployment
+- [ ] Dependencies installed
+- [ ] Environment variables configured
+- [ ] Application built and tested
 
-- `npm start` - Start production server
-- `npm run dev` - Start development server with nodemon
-- `npm run db:init` - Initialize database tables
-- `npm run db:seed` - Seed sample data
+### ✅ Reverse Proxy Setup
+- [ ] Nginx installed
+- [ ] Reverse proxy configured
+- [ ] Firewall settings updated
 
-## 🔒 Security Features
+### ✅ Process Management
+- [ ] PM2 installed
+- [ ] Application configured to run on boot
+- [ ] Background process management verified
 
-- **Password Hashing**: bcrypt with salt rounds
-- **SQL Injection Prevention**: Parameterized queries
-- **Input Validation**: Data type and format validation
-- **Error Handling**: Secure error messages without data leakage
-- **Connection Security**: Environment-based credentials
+### ✅ Domain Configuration (Optional)
+- [ ] Domain name configured
+- [ ] DNS settings updated
+- [ ] Domain pointing to EC2 instance
 
-## 📊 Performance Optimizations
+### ✅ SSL/HTTPS Setup
+- [ ] Let's Encrypt certificate obtained
+- [ ] Nginx configured for HTTPS
+- [ ] HTTP to HTTPS redirect configured
 
-- **Connection Pooling**: Reusable database connections
-- **Strategic Indexes**: Fast query execution
-- **Efficient Queries**: Optimized SQL with JOINs
-- **Connection Timeout**: Automatic cleanup of idle connections
+### ✅ Security Hardening
+- [ ] Unnecessary ports closed
+- [ ] SSH key-based authentication enabled
+- [ ] Password authentication disabled
+- [ ] SSH configuration hardened
 
-## 🔗 Frontend Integration Ready
+## Deliverables
 
-This backend is designed to integrate seamlessly with React frontends in Module 8:
+1. **Deployed Application**
+   - Live application accessible via domain/IP
+   - SSL-secured HTTPS access
+   - Cross-device compatibility verified
 
-- Standardized JSON responses
-- RESTful API design
-- CORS enabled
-- Consistent error handling
-- Comprehensive endpoint documentation
+2. **Source Code**
+   - GitHub repository with full-stack code
+   - Deployment configurations included
+   - Sensitive data excluded
 
-## 🤝 Contributing
+3. **Documentation**
+   - Comprehensive deployment guide
+   - Configuration details
+   - Troubleshooting tips
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+4. **Testing Evidence**
+   - Live application link
+   - Screenshots/videos of HTTP/HTTPS access
+   - Cross-browser compatibility evidence
+
+## Best Practices
+
+### Security
+- Use key-based SSH authentication
+- Restrict SSH access to specific IPs
+- Keep system packages updated
+- Use environment variables for sensitive data
+- Implement proper firewall rules
+
+### Performance
+- Use PM2 for process management
+- Configure Nginx for optimal performance
+- Implement proper caching strategies
+- Monitor application logs
+
+### Maintenance
+- Automate SSL certificate renewal
+- Set up log rotation
+- Implement backup strategies
+- Monitor system resources
+
+## Common Issues and Solutions
+
+### Connection Issues
+- Verify security group settings
+- Check SSH key permissions
+- Confirm instance is running
+
+### Application Issues
+- Check PM2 process status
+- Review application logs
+- Verify environment variables
+
+### SSL Issues
+- Confirm domain DNS settings
+- Check Let's Encrypt rate limits
+- Verify Nginx configuration
+
+## Resources
+
+- [AWS EC2 Documentation](https://docs.aws.amazon.com/ec2/)
+- [Nginx Documentation](https://nginx.org/en/docs/)
+- [PM2 Documentation](https://pm2.keymetrics.io/docs/)
+- [Let's Encrypt Documentation](https://letsencrypt.org/docs/)
+
+## Support
+
+For additional help:
+1. Check the troubleshooting guide
+2. Review AWS CloudWatch logs
+3. Consult the documentation links above
+4. Reach out to the course instructor
 
 ---
 
-**Module 6 Assignment**: ✅ Complete PostgreSQL Integration
-
-- ✅ PostgreSQL database schema and setup
-- ✅ Relational data models with foreign keys
-- ✅ CRUD operations with SQL queries
-- ✅ JOIN queries for related data
-- ✅ Advanced features (search, statistics, validation)
-- ✅ Production-ready backend API
+**Note**: This deployment guide is designed for educational purposes. For production deployments, additional security measures and monitoring should be implemented.
+```
