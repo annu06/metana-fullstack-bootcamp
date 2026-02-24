@@ -13,8 +13,10 @@ export default function Blogs() {
         const data = await getAllBlogs();
         setBlogs(data);
       } catch (err) {
-        setError("Failed to load blogs");
-        console.error(err);
+        // Prefer descriptive error message when available
+        const msg = err?.response?.data?.message || err?.message || "Failed to load blogs";
+        setError(msg);
+        console.error('Error loading blogs:', err);
       } finally {
         setLoading(false);
       }

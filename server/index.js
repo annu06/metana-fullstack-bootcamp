@@ -11,6 +11,11 @@ const app = express();
 const PORT = config.port;
 
 // Middleware
+// Simple request logger to help debug API requests
+app.use((req, res, next) => {
+  console.log(`[${new Date().toISOString()}] ${req.method} ${req.originalUrl}`);
+  next();
+});
 app.use(cors(config.cors));
 app.use(express.json());
 
