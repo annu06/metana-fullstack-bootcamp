@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Dependencies
 node_modules/
 .pnp
@@ -22,12 +23,104 @@ dist/
 .idea/
 *.swp
 *.swo
+=======
+# Node### Root consolidated ignore (extended)
+>>>>>>> origin/main
 
-# OS
+node_modules/
+
+npm-debug.log# Package managers / dependencies
+
+yarn-error.lognode_modules/
+
+package-lock.jsonpnpm-lock.yaml
+
+.envpackage-lock.json
+
+yarn.lock
+
+# Editornpm-debug.log*
+
+.vscode/yarn-debug.log*
+
+*.suoyarn-error.log*
+
+*.ntvs*pnpm-debug.log*
+
+*.njsproj
+
+*.sln# Environment & secrets
+
+.env
+
+# OS.env.*.local
+
+.DS_Store*.local.env
+
+Thumbs.db*.env.local
+
+!.example.env
+
+# Logs!example.env
+
+logs!.env.example
+
+*.log*.pem
+
+*.key
+*.crt
+
+# OS generated files
 .DS_Store
 Thumbs.db
 
+# Editors / IDEs
+.vscode/
+.idea/
+.fleet/
+*.swp
+*.swo
+*~
+*.orig
+*.rej
+
+# TypeScript build outputs / build artifacts
+dist/
+build/
+out/
+coverage/
+.nyc_output/
+lib/
+*.tsbuildinfo
+
+# Caches
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+.ts-node-cache/
+.vite/
+.turbo/
+.next/
+next-env.d.ts
+.nuxt/
+.svelte-kit/
+.astro/
+
+# Testing / reports
+reports/
+coverage-final.json
+junit.xml
+lcov.info
+
+# Runtime data / pids
+pids
+*.pid
+*.seed
+*.pid.lock
+
 # Logs
+<<<<<<< HEAD
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -56,3 +149,70 @@ pids
 
 # TernJS port file
 .tern-port
+=======
+logs
+*.log
+logs/**/*.log
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+*.tmp
+*.bak
+*.backup
+
+# Sass / Less cache
+.sass-cache/
+
+# Build tools artifacts
+.grunt/
+.bower-cache/
+.bower-registry/
+.bower-tmp/
+
+# Coverage tools
+.c8/
+
+# Node inspector
+.node_repl_history
+
+# Optional profiling
+profile-*.
+
+# Database / dumps
+*.dump
+*.sqlite
+*.sqlite3
+sqlite.db
+data/*.sqlite
+
+# Misc
+*.tgz
+.DS_Store
+
+# Yarn v2 / Berry
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+
+# Local serverless / vercel / deploy
+.vercel
+.serverless/
+
+# Docker
+Dockerfile.old
+docker-compose.override.yml
+.docker/**
+
+# Coverage & analysis
+/.sonarqube/
+.scannerwork/
+
+# Lock overrides (keep examples)
+!**/example.env
+!**/.env.example
+>>>>>>> origin/main
